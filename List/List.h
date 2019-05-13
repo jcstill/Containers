@@ -94,7 +94,7 @@ template<class T>List<T>::~List(){
 template<class T>void List<T>::resize(int x){
 	if(x > count){
 		T tmp{};
-		for(int i=x-count; i<x; i++){
+		for(int i=count-x; i<0; i++){
 			push_back(tmp);
 		}
 	}else if(x < count){
@@ -104,7 +104,7 @@ template<class T>void List<T>::resize(int x){
 	}
 }
 template<class T>void List<T>::swap(int x, int y){
-	if(x >= 0 && x < count && y >= 0 && y < count){
+	if(x >= 0 && x < count && y >= 0 && y < count && first != nullptr){
 		node<T> *current = first;
 		node<T> *current2 = first;
 		for(int i=0; i<x; i++){
@@ -261,7 +261,9 @@ template<class T>int List<T>::search(const T& x){
 	return -1;
 }
 template<class T>void List<T>::reverse(){
-	
+	for(int i=0; i<(count/2); i++){
+		swap(i, count-i-1);
+	}
 }
 template<class T>const List<T>& List<T>::operator=(const List<T>& x){
 	clear(0, count - 1);

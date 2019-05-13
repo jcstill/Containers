@@ -41,6 +41,7 @@ template<class T>class Vector{
 		void shrink_to_fit();							// Shrink array to fit data
 		void resize(int);								// Make array X elements long (shortening list will destroy remaining elements)
 		const T& retAt(int) const;						// Return element at index
+		void reverse();									// Reverses the whole array
 		const Vector<T>& operator=(const Vector<T>&);	// Overloaded assignment operator
 		const T& operator[](int) const;					// Overloaded bracket operator
 		
@@ -289,6 +290,10 @@ template<class T>const T& Vector<T>::retAt(int x) const{
 	cout << "\nERROR! Vector<T>::retAt(int) out of bounds\n";
 	return array[0];
 }
-
+template<class T>void Vector<T>::reverse(){
+	for(int i=0; i<(size/2); i++){
+		swap(i, size-i-1);
+	}
+}
 
 #endif

@@ -7,7 +7,7 @@ int main(){
 	cout << TMP.isEmpty() << "\n\n";
 	
 	cout << "push_back" << '\n';
-	for(int i=0; i<5; i++){
+	for(int i=0; i<6; i++){
 		TMP.push_back(i);
 	}
 	TMP.print();
@@ -99,10 +99,17 @@ int main(){
 	TMP2 = TMP;
 	TMP2.print();
 	cout << '\n';
+	
+	for(int i=0; i<6; i++){
+		TMP.push_back(i);
+	}
+	TMP.print();
+	cout << '\n';
+	
+	cout << "reverse" << '\n';
+	TMP.reverse();
+	TMP.print();
+	cout << '\n';
 
 	return 0;
 }
-
-
-// void reverse();
-// const List<T>& operator=(const List<T>&);
