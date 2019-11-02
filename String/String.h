@@ -45,40 +45,54 @@ class String{
 		String& insert(int, const String&);				// Inserts a copy of String into this String
 		String& insert(int, const char*);				// Inserts a copy of const char* into this String - ei.( "Hello World" )
 		String& insert(int, char);						// Inserts a copy of char into this String - ei.( 'Y' )
-		void erase(int, int);							// Erase portion of string ()
+		void erase(int, int);							// Erase portion of this String ()
 		String& replace(int, int, const String&);		// Replace portion of this String with String
 		String& replace(int, int, const char*);			// Replace portion of this String with const char* - ei.( "Hello World" )
 		String& replace(int, int, char);				// Replace portion of this String with char - ei.( 'Y' )
 		void swap(String&);								// Swaps contents of this String with String
 		void pop_back();								// Delete last character
 		// String Operations
-		// const char* c_str();						// Return pointer to char array of String
-		// const char* data() const;						//
 
+		// const char* c_str() const;					// Return pointer to char array of String
 
+		// const char* data() const;					// Return pointer to char array of String
 
+		// int copy(char*, int, int);					// Copy portion of this String to a char array
 
-// get_allocator
-// copy
-// find
-// rfind
-// find_first_of
-// find_last_of
-// find_first_not_of
-// find_last_not_of
-// substr
-// compare
+		// int find(const String&, int);				// Search this String for the first occurrence of String starting at a position
+		// int find(const char*, int);					// Search this String for the first occurrence of const char* starting at a position - ei.( "Hello World" )
+		// int find(char, int);							// Search this String for the first occurrence of char starting at a position - ei.( 'Y' )
+		
+		// int rfind(const String&, int);				// Search this String for the last occurrence of String starting at a position
+		// int rfind(const char*, int);					// Search this String for the last occurrence of const char* starting at a position - ei.( "Hello World" )
+		// int rfind(char, int);						// Search this String for the last occurrence of char starting at a position - ei.( 'Y' )
 
+		// int find_first_of(const String&, int=0);		// Search this String for the first character that matches any of the charaters in String starting at a position
+		// int find_first_of(const char*, int=0);		// Search this String for the first character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		// int find_first_of(char, int=0);				// Search this String for the first character that matches char starting at a position - ei.( 'Y' )
 
+		// int find_last_of(const String&, int=0);		// Search this String for the last character that matches any of the charaters in String starting at a position
+		// int find_last_of(const char*, int=0);		// Search this String for the last character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		// int find_last_of(char, int=0);				// Search this String for the last character that matches char starting at a position - ei.( 'Y' )
 
+		// int find_first_not_of(const String&, int=0);	// Search this String for the first character that does not match any of the charaters in String starting at a position
+		// int find_first_not_of(const char*, int=0);	// Search this String for the first character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		// int find_first_not_of(char, int=0);			// Search this String for the first character that does not char starting at a position - ei.( 'Y' )
 
+		// int find_last_not_of(const String&, int=0);	// Search this String for the last character that does not match any of the charaters in String starting at a position
+		// int find_last_not_of(const char*, int=0);	// Search this String for the last character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		// int find_last_not_of(char, int=0);			// Search this String for the last character that does not char starting at a position - ei.( 'Y' )
 
+		// String substr(int, int);						// Return a new String object that is a substring copy of this String
 
+		// int compare(const String&) const;			// Compare this String to String
+		// int compare(const char*) const;				// Compare this String to const char* - ei.( "Hello World" )
+		// int compare(char) const;						// Compare this String to char - ei.( 'Y' )
+														// 0	They are equal
+														// <0	Value of the first character that doesn't match is lower in the compared string, or all compared characters match but the compared string is shorter.
+														// >0	Value of the first character that doesn't match is higher in the compared string, or all compared characters match but the compared string is longer.
 
-
-
-
-		void print();									// 
+		void print();									// Print the entire string - For debugging only
 };
 
 String::String(){
@@ -340,15 +354,78 @@ void String::swap(String& x){
 // 	array[size] = '\0';
 // 	return array;
 // }
+// const char* data() const{
 
+// }
+// int copy(char*, int, int){
 
+// }
+// int find(const String&, int){
 
+// }
+// int find(const char*, int){
 
+// }
+// int find(char, int){
 
+// }
+// int rfind(const String&, int){
 
+// }
+// int rfind(const char*, int){
 
+// }
+// int rfind(char, int){
 
+// }
+// int find_first_of(const String&, int=0){
 
+// }
+// int find_first_of(const char*, int=0){
+
+// }
+// int find_first_of(char, int=0){
+
+// }
+// int find_last_of(const String&, int=0){
+
+// }
+// int find_last_of(const char*, int=0){
+
+// }
+// int find_last_of(char, int=0){
+
+// }
+// int find_first_not_of(const String&, int=0){
+
+// }
+// int find_first_not_of(const char*, int=0){
+
+// }
+// int find_first_not_of(char, int=0){
+
+// }
+// int find_last_not_of(const String&, int=0){
+
+// }
+// int find_last_not_of(const char*, int=0){
+
+// }
+// int find_last_not_of(char, int=0){
+
+// }
+// String substr(int, int){
+
+// }
+// int compare(const String&) const{
+
+// }
+// int compare(const char*) const{
+
+// }
+// int compare(char) const{
+
+// }
 
 
 
