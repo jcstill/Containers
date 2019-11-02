@@ -91,7 +91,7 @@ template<class T>List<T>::~List(){
 	last = nullptr;
 	count = 0;
 }
-template<class T>void List<T>::resize(int x){
+template<class T>void List<T>::resize(int x){		// FIXME
 	if(x > count){
 		T tmp{};
 		for(int i=count-x; i<0; i++){

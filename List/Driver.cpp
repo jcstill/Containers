@@ -81,6 +81,7 @@ int main(){
 
 	cout << "Front: " << TMP.retFront() << '\n';
 	cout << "End: " << TMP.retEnd() << '\n';
+	cout << "At 0: " << TMP.retAt(0) << "\n";
 	cout << "At 2: " << TMP.retAt(2) << "\n\n";
 	
 	cout << "Create new list 8 long\n";
