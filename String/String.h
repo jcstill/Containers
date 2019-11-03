@@ -34,7 +34,7 @@ class String{
 		int length() const;									// Returns size of the String
 		void resize(int);									// Resize String - Can modify String
 		int capacityOf() const;								// Returns the size of allocated storage
-		void reserve(int);									// Resize String - Can't modify String
+		void reserve(int=0);								// Resize String - Can't modify String
 		void clear();										// Clear the String - Resets capacity to 0
 		bool isEmpty();										// Check if String is empty
 		void shrink_to_fit();								// Shrink capacity to fit size
@@ -53,7 +53,7 @@ class String{
 		String& insert(int, const String&);					// Inserts a copy of String into this String
 		String& insert(int, const char*);					// Inserts a copy of const char* into this String - ei.( "Hello World" )
 		String& insert(int, char);							// Inserts a copy of char into this String - ei.( 'Y' )
-		void erase(int, int);								// Erase portion of this String ()
+		void erase(int, int=-1);							// Erase portion of this String ()
 		String& replace(int, int, const String&);			// Replace portion of this String with String
 		String& replace(int, int, const char*);				// Replace portion of this String with const char* - ei.( "Hello World" )
 		String& replace(int, int, char);					// Replace portion of this String with char - ei.( 'Y' )
@@ -65,7 +65,7 @@ class String{
 
 		// const char* data() const;							// Return pointer to char array of String
 
-		int copy(char*, int, int) const;					// Copy portion of this String to a char array
+		int copy(char*, int, int=0) const;					// Copy portion of this String to a char array
 		int find(const String&, int=0) const;				// Search this String for the first occurrence of String starting at a position
 		int find(const char*, int=0) const;					// Search this String for the first occurrence of const char* starting at a position - ei.( "Hello World" )
 		int find(char, int=0) const;						// Search this String for the first occurrence of char starting at a position - ei.( 'Y' )
@@ -377,6 +377,9 @@ String& String::insert(int y, char x){
 	return *this;
 }
 void String::String::erase(int x, int y){
+	if(y == -1){
+		y=size;
+	}
 	int tmp = 0;
 	if(x > y){
 		tmp = x;
@@ -387,6 +390,7 @@ void String::String::erase(int x, int y){
 	tmp = y - x +1;
 	size -= tmp;
 	capacity -= tmp;
+
 }
 String& String::replace(int y, int len, const String& x){
 	erase(y, y+len);
@@ -422,7 +426,7 @@ void String::swap(String& x){
 // const char* data() const{
 
 // }
-int String::copy(char* x, int y, int len) const{
+int String::copy(char* x, int len, int y) const{
 	int constsize = 0;
 	for(int i=y; i<y+len; i++){
 		x[i-y] = at(i);

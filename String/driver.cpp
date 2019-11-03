@@ -127,6 +127,9 @@ int main(){
 	cout << tmp3[1] << "\n\n";
 
 	cout << "at 1" << '\n';
+	cout << tmp3.at(1) << "\n\n";
+
+	cout << "at -1" << '\n';
 	cout << tmp3.at(-1) << "\n\n";
 
 	cout << "back" << '\n';
@@ -135,7 +138,7 @@ int main(){
 	cout << "front" << '\n';
 	cout << tmp3.front() << "\n\n";
 
-	cout << "+= tmp1" << '\n';
+	cout << "tmp3 += tmp1" << '\n';
 	tmp3 += tmp1;
 	tmp3.print();
 	cout << "sizeOf" << '\n';
@@ -145,7 +148,7 @@ int main(){
 	cout << "capacityOf" << '\n';
 	cout << tmp3.capacityOf() << "\n\n";
 
-	cout << "+= \'Y\'" << '\n';
+	cout << "tmp3 += \'Y\'" << '\n';
 	tmp3 += 'Y';
 	tmp3.print();
 	cout << "sizeOf" << '\n';
@@ -155,7 +158,7 @@ int main(){
 	cout << "capacityOf" << '\n';
 	cout << tmp3.capacityOf() << "\n\n";
 
-	cout << "+= \"YEET\"" << '\n';
+	cout << "tmp3 += \"YEET\"" << '\n';
 	tmp3 += "YEET";
 	tmp3.print();
 	cout << "sizeOf" << '\n';
@@ -368,14 +371,14 @@ int main(){
 	// cout << tmp3.c_str() << "\n\n";
 
 	char buff1[10];
-	buff1[tmp1.copy(buff1, 1, 5)] = '\0';
 	tmp1.print();
-	cout << buff1 << '\n';
+	buff1[tmp1.copy(buff1, 5, 1)] = '\0';
+	cout << "buff1: " << buff1 << '\n';
 
-	char buff2[10];
+	// char buff1[10];
 	tmp1.print();
-	buff2[tmp1.copy(buff2, 7, 2)] = '\0';
-	cout << buff2 << "\n\n";
+	buff1[tmp1.copy(buff1, 2, 7)] = '\0';
+	cout << "buff1: " << buff1 << "\n\n";
 
 	tmp1 = "helloyeetiloyboietii";
 	tmp1.print();
