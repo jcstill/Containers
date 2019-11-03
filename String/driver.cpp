@@ -127,7 +127,7 @@ int main(){
 	cout << tmp3[1] << "\n\n";
 
 	cout << "at 1" << '\n';
-	cout << tmp3.at(1) << "\n\n";
+	cout << tmp3.at(-1) << "\n\n";
 
 	cout << "back" << '\n';
 	cout << tmp3.back() << "\n\n";
@@ -313,12 +313,116 @@ int main(){
 	cout << "capacityOf tmp1" << '\n';
 	cout << tmp1.capacityOf() << "\n\n";
 
+
+	cout << "tmp3 = tmp1" << '\n';
+	tmp3 = tmp1;
+	tmp3.print();
+	cout << "sizeOf" << '\n';
+	cout << tmp3.sizeOf() << "\n";
+	cout << "length" << '\n';
+	cout << tmp3.length() << "\n";
+	cout << "capacityOf" << '\n';
+	cout << tmp3.capacityOf() << "\n\n";
+
+	cout << "tmp3 = \'y\'" << '\n';
+	tmp3 = 'y';
+	tmp3.print();
+	cout << "sizeOf" << '\n';
+	cout << tmp3.sizeOf() << "\n";
+	cout << "length" << '\n';
+	cout << tmp3.length() << "\n";
+	cout << "capacityOf" << '\n';
+	cout << tmp3.capacityOf() << "\n\n";
+
+	cout << "tmp3 = \"yeet\"" << '\n';
+	tmp3 = "yeet";
+	tmp3.print();
+	cout << "sizeOf" << '\n';
+	cout << tmp3.sizeOf() << "\n";
+	cout << "length" << '\n';
+	cout << tmp3.length() << "\n";
+	cout << "capacityOf" << '\n';
+	cout << tmp3.capacityOf() << "\n\n";
+
+	cout << "tmp4 from \'y\':\n";
+	String tmp4('y');
+	tmp4.print();
+	cout << "sizeOf" << '\n';
+	cout << tmp4.sizeOf() << "\n";
+	cout << "length" << '\n';
+	cout << tmp4.length() << "\n";
+	cout << "capacityOf" << '\n';
+	cout << tmp4.capacityOf() << "\n\n";
+
+	cout << "tmp5 from \"yeet\":\n";
+	String tmp5("yeet");
+	tmp5.print();
+	cout << "sizeOf" << '\n';
+	cout << tmp5.sizeOf() << "\n";
+	cout << "length" << '\n';
+	cout << tmp5.length() << "\n";
+	cout << "capacityOf" << '\n';
+	cout << tmp5.capacityOf() << "\n\n";
+
 	// cout << "c_str of tmp3" << '\n';
 	// cout << tmp3.c_str() << "\n\n";
+
+	char buff1[10];
+	buff1[tmp1.copy(buff1, 1, 5)] = '\0';
+	tmp1.print();
+	cout << buff1 << '\n';
+
+	char buff2[10];
+	tmp1.print();
+	buff2[tmp1.copy(buff2, 7, 2)] = '\0';
+	cout << buff2 << "\n\n";
+
+	tmp1 = "helloyeetiloyboietii";
+	tmp1.print();
+	cout << "sizeOf" << '\n';
+	cout << tmp1.sizeOf() << "\n";
+	cout << "length" << '\n';
+	cout << tmp1.length() << "\n";
+	cout << "capacityOf" << '\n';
+	cout << tmp1.capacityOf() << "\n\n";
+
+	tmp2 = "eti";
+
+	cout << "tmp2 \"eti\" find in tmp1: " << tmp1.find(tmp2, 0) << '\n';
+	cout << "\"loy\" find in tmp1: " << tmp1.find("loy", 0) << '\n';
+	cout << "\'e\' find in tmp1: " << tmp1.find('e', 0) << "\n\n";
+
+	cout << "tmp2 \"eti\" rfind in tmp1: " << tmp1.rfind(tmp2, 0) << '\n';
+	cout << "\"loy\" rfind in tmp1: " << tmp1.rfind("loy", 0) << '\n';
+	cout << "\'e\' rfind in tmp1: " << tmp1.rfind('e', 0) << "\n\n";
+
+	cout << "tmp2 \"eti\" find_first_of in tmp1: " << tmp1.find_first_of(tmp2, 0) << '\n';
+	cout << "\"bt\" find_first_of in tmp1: " << tmp1.find_first_of("bt", 0) << '\n';
+	cout << "\'i\' find_first_of in tmp1: " << tmp1.find_first_of('i', 0) << "\n\n";
+
+	cout << "tmp2 \"eti\" find_last_of in tmp1: " << tmp1.find_last_of(tmp2, 0) << '\n';
+	cout << "\"bt\" find_last_of in tmp1: " << tmp1.find_last_of("bt", 0) << '\n';
+	cout << "\'o\' find_last_of in tmp1: " << tmp1.find_last_of('o', 0) << "\n\n";
+
+	tmp2 = "ahec";
+
+	cout << "tmp2 \"ahec\" find_first_not_of in tmp1: " << tmp1.find_first_not_of(tmp2, 0) << '\n';
+	cout << "\"zfleh\" find_first_not_of in tmp1: " << tmp1.find_first_not_of("zfleh", 0) << '\n';
+	cout << "\'a\' find_first_not_of in tmp1: " << tmp1.find_first_not_of('a', 0) << "\n\n";
+
+	cout << "tmp2 \"ahec\" find_last_not_of in tmp1: " << tmp1.find_last_not_of(tmp2, 0) << '\n';
+	cout << "\"zftlieh\" find_last_not_of in tmp1: " << tmp1.find_last_not_of("zftlieh", 0) << '\n';
+	cout << "\'i\' find_last_not_of in tmp1: " << tmp1.find_last_not_of('i', 0) << "\n\n";
+
+
+
+
 
 
 	tmp1.~String();
 	tmp2.~String();
 	tmp3.~String();
+	tmp4.~String();
+	tmp5.~String();
 	return 0;
 }
