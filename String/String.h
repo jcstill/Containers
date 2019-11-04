@@ -97,38 +97,38 @@ class String{
 		String& assign(const String&);							// Replaces this String with String passed in
 		String& assign(const char*);							// Replaces this String with const char* passed in - ei.( "Hello World" )
 		String& assign(char);									// Replaces this String with char passed in - ei.( 'Y' )
-		String& insert(int, const String&);						// Inserts a copy of String into this String
-		String& insert(int, const char*);						// Inserts a copy of const char* into this String - ei.( "Hello World" )
-		String& insert(int, char);								// Inserts a copy of char into this String - ei.( 'Y' )
-		void erase(int=0, int=-1);								// Erase portion of this String ()
-		String& replace(int, int, const String&);				// Replace portion of this String with String
-		String& replace(int, int, const char*);					// Replace portion of this String with const char* - ei.( "Hello World" )
-		String& replace(int, int, char);						// Replace portion of this String with char - ei.( 'Y' )
+		String& insert(int index, const String&);				// Inserts a copy of String into this String
+		String& insert(int index, const char*);					// Inserts a copy of const char* into this String - ei.( "Hello World" )
+		String& insert(int index, char);						// Inserts a copy of char into this String - ei.( 'Y' )
+		void erase(int index=0, int length=-1);					// Erase portion of this String ()
+		String& replace(int index, int length, const String&);	// Replace portion of this String with String
+		String& replace(int index, int length, const char*);	// Replace portion of this String with const char* - ei.( "Hello World" )
+		String& replace(int index, int length, char);			// Replace portion of this String with char - ei.( 'Y' )
 		void swap(String&);										// Swaps contents of this String with String
 		void pop_back();										// Delete last character
 		// String Operations
 		const char* c_str();									// Return pointer to char array of String
 		const char* data();										// Return pointer to char array of String
-		int copy(char*, int, int=0) const;						// Copy portion of this String to a char array
-		int find(const String&, int=0) const;					// Search this String for the first occurrence of String starting at a position
-		int find(const char*, int=0) const;						// Search this String for the first occurrence of const char* starting at a position - ei.( "Hello World" )
-		int find(char, int=0) const;							// Search this String for the first occurrence of char starting at a position - ei.( 'Y' )
-		int rfind(const String&, int=0) const;					// Search this String for the last occurrence of String starting at a position
-		int rfind(const char*, int=0) const;					// Search this String for the last occurrence of const char* starting at a position - ei.( "Hello World" )
-		int rfind(char, int=0) const;							// Search this String for the last occurrence of char starting at a position - ei.( 'Y' )
-		int find_first_of(const String&, int=0) const;			// Search this String for the first character that matches any of the charaters in String starting at a position
-		int find_first_of(const char*, int=0) const;			// Search this String for the first character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_first_of(char, int=0) const;					// Search this String for the first character that matches char starting at a position - ei.( 'Y' )
-		int find_last_of(const String&, int=0) const;			// Search this String for the last character that matches any of the charaters in String starting at a position
-		int find_last_of(const char*, int=0) const;				// Search this String for the last character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_last_of(char, int=0) const;					// Search this String for the last character that matches char starting at a position - ei.( 'Y' )
-		int find_first_not_of(const String&, int=0) const;		// Search this String for the first character that does not match any of the charaters in String starting at a position
-		int find_first_not_of(const char*, int=0) const;		// Search this String for the first character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_first_not_of(char, int=0) const;				// Search this String for the first character that does not char starting at a position - ei.( 'Y' )
-		int find_last_not_of(const String&, int=0)const;		// Search this String for the last character that does not match any of the charaters in String starting at a position
-		int find_last_not_of(const char*, int=0) const;			// Search this String for the last character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_last_not_of(char, int=0) const;				// Search this String for the last character that does not char starting at a position - ei.( 'Y' )
-		String substr(int=0, int=-1) const;						// Return a new String object that is a substring copy of this String
+		int copy(char*, int length, int index=0) const;			// Copy portion of this String to a char array
+		int find(const String&, int index=0) const;				// Search this String for the first occurrence of String starting at a position
+		int find(const char*, int index=0) const;				// Search this String for the first occurrence of const char* starting at a position - ei.( "Hello World" )
+		int find(char, int index=0) const;						// Search this String for the first occurrence of char starting at a position - ei.( 'Y' )
+		int rfind(const String&, int index=0) const;			// Search this String for the last occurrence of String starting at a position
+		int rfind(const char*, int index=0) const;				// Search this String for the last occurrence of const char* starting at a position - ei.( "Hello World" )
+		int rfind(char, int index=0) const;						// Search this String for the last occurrence of char starting at a position - ei.( 'Y' )
+		int find_first_of(const String&, int index=0) const;	// Search this String for the first character that matches any of the charaters in String starting at a position
+		int find_first_of(const char*, int index=0) const;		// Search this String for the first character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_first_of(char, int index=0) const;				// Search this String for the first character that matches char starting at a position - ei.( 'Y' )
+		int find_last_of(const String&, int index=0) const;		// Search this String for the last character that matches any of the charaters in String starting at a position
+		int find_last_of(const char*, int index=0) const;		// Search this String for the last character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_last_of(char, int index=0) const;				// Search this String for the last character that matches char starting at a position - ei.( 'Y' )
+		int find_first_not_of(const String&, int index=0) const;// Search this String for the first character that does not match any of the charaters in String starting at a position
+		int find_first_not_of(const char*, int index=0) const;	// Search this String for the first character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_first_not_of(char, int index=0) const;			// Search this String for the first character that does not char starting at a position - ei.( 'Y' )
+		int find_last_not_of(const String&, int index=0)const;	// Search this String for the last character that does not match any of the charaters in String starting at a position
+		int find_last_not_of(const char*, int index=0) const;	// Search this String for the last character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_last_not_of(char, int index=0) const;			// Search this String for the last character that does not char starting at a position - ei.( 'Y' )
+		String substr(int index=0, int length=-1) const;		// Return a new String object that is a substring copy of this String
 		//int compare(const String&) const;						// Compare this String to String
 		//int compare(const char*) const;							// Compare this String to const char* - ei.( "Hello World" )
 		//int compare(char) const;								// Compare this String to char - ei.( 'Y' )
@@ -411,10 +411,10 @@ void String::shrink_to_fit(){
 }
 // Element access
 char String::at(int x) const{
-	if(x >= 0){
+	if(x >= 0 && x < size){
 		return str.retAt(x);
 	}
-	return 255;
+	return 0;
 }
 char String::back() const{
 	return str.retEnd();
