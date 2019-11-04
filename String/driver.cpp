@@ -367,8 +367,8 @@ int main(){
 	cout << "capacityOf" << '\n';
 	cout << tmp5.capacityOf() << "\n\n";
 
-	// cout << "c_str of tmp3" << '\n';
-	// cout << tmp3.c_str() << "\n\n";
+	cout << "c_str of tmp3" << '\n';
+	cout << tmp3.c_str() << "\n\n";
 
 	char buff1[10];
 	tmp1.print();
@@ -417,9 +417,56 @@ int main(){
 	cout << "\"zftlieh\" find_last_not_of in tmp1: " << tmp1.find_last_not_of("zftlieh", 0) << '\n';
 	cout << "\'i\' find_last_not_of in tmp1: " << tmp1.find_last_not_of('i', 0) << "\n\n";
 
+	cout << "data of tmp3" << '\n';
+	cout << tmp3.data() << "\n\n";
+
+	cin >> tmp5;
+	tmp5.print();
+	cout << '\n';
+	cout << tmp5 << " Test\n\n";
+
+	cout << "tmp5 before concat:\n";
+	tmp5.print();
+	cout << '\n';
+	cout << "tmp3 before concat:\n";
+	tmp3.print();
+	cout << '\n';
+	cout << "tmp4 before concat:\n";
+	tmp4.print();
+	cout << '\n';
+	cout << "tmp4 = tmp5 + tmp3\n";
+	tmp4 = tmp5 + tmp3;
+	tmp4.print();
+	cout << '\n';
+
+	cout << "tmp4 = tmp5 + \"hello\"\n";
+	tmp4 = tmp5 + "hello";
+	tmp4.print();
+	cout << '\n';
+
+	cout << "tmp4 = tmp5 + \'5\'\n";
+	tmp4 = tmp5 + '5';
+	tmp4.print();
+	cout << '\n';
+
+	cout << "tmp4 = \"TEST\" + tmp5\n";
+	tmp4 = "TEST" + tmp5;
+	tmp4.print();
+	cout << '\n';
+
+	cout << "tmp4 = \'T\' + tmp5\n";
+	tmp4 = 'T' + tmp5;
+	tmp4.print();
+	cout << '\n';
 
 
 
+	tmp5.print();
+	cout << '\n';
+	cout << "tmp4 = tmp5.substr(2, 3)\n";
+	tmp4 = tmp5.substr(2, 3);
+	tmp4.print();
+	cout << '\n';
 
 
 	tmp1.~String();
