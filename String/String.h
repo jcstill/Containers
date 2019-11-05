@@ -36,36 +36,43 @@ class String{
 		friend String operator+(const char*, const String&);	// Concatenate two Strings into String
 		friend String operator+(const String&, char);			// Concatenate two Strings into String
 		friend String operator+(char, const String&);			// Concatenate two Strings into String
+
 		//friend bool operator==(const string&, const string&);	// Equal comparison
 		//friend bool operator==(const string&, const char*);		// Equal comparison
 		//friend bool operator==(const char*, const string&);		// Equal comparison
 		//friend bool operator==(const string&, char);			// Equal comparison
 		//friend bool operator==(char, const string&);			// Equal comparison
+
 		//friend bool operator!=(const string&, const string&);	// Not equal comparison
 		//friend bool operator!=(const string&, const char*);		// Not equal comparison
 		//friend bool operator!=(const char*, const string&);		// Not equal comparison
 		//friend bool operator!=(const string&, char);			// Not equal comparison
 		//friend bool operator!=(char, const string&);			// Not equal comparison
+
 		//friend bool operator<(const string&, const string&);	// Less than comparison
 		//friend bool operator<(const string&, const char*);		// Less than comparison
 		//friend bool operator<(const char*, const string&);		// Less than comparison
 		//friend bool operator<(const string&, char);				// Less than comparison
 		//friend bool operator<(char, const string&);				// Less than comparison
+
 		//friend bool operator<=(const string&, const string&);	// Less than or equal comparison
 		//friend bool operator<=(const string&, const char*);		// Less than or equal comparison
 		//friend bool operator<=(const char*, const string&);		// Less than or equal comparison
 		//friend bool operator<=(const string&, char);			// Less than or equal comparison
 		//friend bool operator<=(char, const string&);			// Less than or equal comparison
+
 		//friend bool operator>(const string&, const string&);	// Greater than comparison
 		//friend bool operator>(const string&, const char*);		// Greater than comparison
 		//friend bool operator>(const char*, const string&);		// Greater than comparison
 		//friend bool operator>(const string&, char);				// Greater than comparison
 		//friend bool operator>(char, const string&);				// Greater than comparison
+
 		//friend bool operator>=(const string&, const string&);	// Greater than or equal comparison
 		//friend bool operator>=(const string&, const char*);		// Greater than or equal comparison
 		//friend bool operator>=(const char*, const string&);		// Greater than or equal comparison
 		//friend bool operator>=(const string&, char);			// Greater than or equal comparison
 		//friend bool operator>=(char, const string&);			// Greater than or equal comparison
+
 		friend void swap(String&, String&);						// Swaps contents of the two Strings
 		//friend istream& getline(istream&, String&, char);
 		//friend istream& getline(istream&, String&);
