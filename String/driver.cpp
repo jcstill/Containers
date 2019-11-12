@@ -420,7 +420,8 @@ int main(){
 	cout << "data of tmp3" << '\n';
 	cout << tmp3.data() << "\n\n";
 
-	cin >> tmp5;
+	//cin >> tmp5;
+	tmp5 = "sdfs";
 	tmp5.print();
 	cout << '\n';
 	cout << tmp5 << " Test\n\n";
@@ -459,8 +460,6 @@ int main(){
 	tmp4.print();
 	cout << '\n';
 
-
-
 	tmp5.print();
 	cout << '\n';
 	cout << "tmp4 = tmp5.substr(2, 3)\n";
@@ -468,6 +467,388 @@ int main(){
 	tmp4.print();
 	cout << '\n';
 
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(tmp2): ";
+	cout << tmp1.compare(tmp2) << " (0)\n\n";
+
+	tmp1 = "test";
+	tmp2 = "aest";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(tmp2): ";
+	cout << tmp1.compare(tmp2) << " (-1)\n\n";
+
+	tmp1 = "test";
+	tmp2 = "tes";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(tmp2): ";
+	cout << tmp1.compare(tmp2) << " (-1)\n\n";
+
+	tmp1 = "test";
+	tmp2 = "zest";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(tmp2): ";
+	cout << tmp1.compare(tmp2) << " (1)\n\n";
+
+	tmp1 = "tes";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(tmp2): ";
+	cout << tmp1.compare(tmp2) << " (1)\n\n";
+
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp1.print();
+	cout << "tmp1.compare(\"test\"): ";
+	cout << tmp1.compare("test") << " (0)\n\n";
+
+	tmp1 = "test";
+	tmp1.print();
+	cout << "tmp1.compare(\"aest\"): ";
+	cout << tmp1.compare("aest") << " (-1)\n\n";
+
+	tmp1 = "test";
+	tmp1.print();
+	cout << "tmp1.compare(\"tes\"): ";
+	cout << tmp1.compare("tes") << " (-1)\n\n";
+
+	tmp1 = "test";
+	tmp1.print();
+	cout << "tmp1.compare(\"zest\"): ";
+	cout << tmp1.compare("zest") << " (1)\n\n";
+
+	tmp1 = "tes";
+	tmp1.print();
+	cout << "tmp1.compare(\"test\"): ";
+	cout << tmp1.compare("test") << " (1)\n\n";
+
+	cout << "------------------------------------\n";
+	tmp1 = "t";
+	tmp1.print();
+	cout << "tmp1.compare(\'t\'): ";
+	cout << tmp1.compare('t') << " (0)\n\n";
+
+	tmp1 = "t";
+	tmp1.print();
+	cout << "tmp1.compare(\'a\'): ";
+	cout << tmp1.compare('a') << " (-1)\n\n";
+	
+	tmp1 = "test";
+	tmp1.print();
+	cout << "tmp1.compare(\'t\'): ";
+	cout << tmp1.compare('a') << " (-1)\n\n";
+
+	tmp1 = "t";
+	tmp1.print();
+	cout << "tmp1.compare(\'z\'): ";
+	cout << tmp1.compare('z') << " (1)\n\n";
+
+	tmp1 = "test";
+	tmp1.print();
+	cout << "tmp1.compare(\'t\'): ";
+	cout << tmp1.compare('z') << " (1)\n\n";
+
+	cout << "------------------------------------\n";
+	tmp1 = "abc test asdf";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2): ";
+	cout << tmp1.compare(4, 4, tmp2) << " (0)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp2 = "aest";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2): ";
+	cout << tmp1.compare(4, 4, tmp2) << " (-1)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp2 = "tes";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2): ";
+	cout << tmp1.compare(4, 4, tmp2) << " (-1)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp2 = "zest";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2): ";
+	cout << tmp1.compare(4, 4, tmp2) << " (1)\n\n";
+
+	tmp1 = "abc tes";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2): ";
+	cout << tmp1.compare(4, 4, tmp2) << " (1)\n\n";
+
+	cout << "------------------------------------\n";
+	tmp1 = "abc test asdf";
+	tmp2 = "yeet test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2, 5, 4): ";
+	cout << tmp1.compare(4, 4, tmp2, 5, 4) << " (0)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp2 = "yeet aest";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2, 5, 4): ";
+	cout << tmp1.compare(4, 4, tmp2, 5, 4) << " (-1)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp2 = "yeet tes";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2, 5, 4): ";
+	cout << tmp1.compare(4, 4, tmp2, 5, 4) << " (-1)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp2 = "yeet zest";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2, 5, 4): ";
+	cout << tmp1.compare(4, 4, tmp2, 5, 4) << " (1)\n\n";
+
+	tmp1 = "abc tes";
+	tmp2 = "yeet test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	cout << "tmp1.compare(4, 4, tmp2, 5, 4): ";
+	cout << tmp1.compare(4, 4, tmp2, 5, 4) << " (1)\n\n";
+
+	cout << "------------------------------------\n";
+	tmp1 = "abc test asdf";
+	tmp1.print();
+	cout << "tmp1.compare(4, 4, \"test\"): ";
+	cout << tmp1.compare(4, 4, "test") << " (0)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp1.print();
+	cout << "tmp1.compare(4, 4, \"aest\"): ";
+	cout << tmp1.compare(4, 4, "aest") << " (-1)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp1.print();
+	cout << "tmp1.compare(4, 4, \"tes\"): ";
+	cout << tmp1.compare(4, 4, "tes") << " (-1)\n\n";
+
+	tmp1 = "abc test asdf";
+	tmp1.print();
+	cout << "tmp1.compare(4, 4, \"zest\"): ";
+	cout << tmp1.compare(4, 4, "zest") << " (1)\n\n";
+
+	tmp1 = "abc tes";
+	tmp1.print();
+	cout << "tmp1.compare(4, 4, \"test\"): ";
+	cout << tmp1.compare(4, 4, "test") << " (1)\n\n";
+
+	// cout << "------------------------------------\n";
+	// tmp1 = "test";
+	// tmp2 = "test";
+	// tmp1.print();
+	// cout << '\n';
+	// tmp2.print();
+	// if(tmp1 == tmp2){
+	// 	cout << "tmp1 == tmp2\n\n";
+	// }else{
+	// 	cout << "tmp1 and tmp2 are not equal\n\n";
+	// }
+
+	// tmp1 = "yeet";
+	// tmp2 = "test";
+	// tmp1.print();
+	// cout << '\n';
+	// tmp2.print();
+	// if(tmp1 == tmp2){
+	// 	cout << "tmp1 == tmp2\n\n";
+	// }else{
+	// 	cout << "tmp1 and tmp2 are not equal\n\n";
+	// }
+
+	// cout << "------------------------------------\n";
+	// tmp1 = "test";
+	// tmp2 = "test";
+	// tmp1.print();
+	// cout << '\n';
+	// tmp2.print();
+	// if(tmp1 != tmp2){
+	// 	cout << "tmp1 != tmp2\n\n";
+	// }else{
+	// 	cout << "tmp1 and tmp2 are equal\n\n";
+	// }
+
+	// tmp1 = "yeet";
+	// tmp2 = "test";
+	// tmp1.print();
+	// cout << '\n';
+	// tmp2.print();
+	// if(tmp1 != tmp2){
+	// 	cout << "tmp1 != tmp2\n\n";
+	// }else{
+	// 	cout << "tmp1 and tmp2 are equal\n\n";
+	// }
+
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 < tmp2){
+		cout << "tmp1 < tmp2\n\n";
+	}else{
+		cout << "tmp1 !< tmp2\n\n";
+	}
+
+	tmp1 = "alps";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 < tmp2){
+		cout << "tmp1 < tmp2\n\n";
+	}else{
+		cout << "tmp1 !< tmp2\n\n";
+	}
+
+	tmp1 = "yeet";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 < tmp2){
+		cout << "tmp1 < tmp2\n\n";
+	}else{
+		cout << "tmp1 !< tmp2\n\n";
+	}
+
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 <= tmp2){
+		cout << "tmp1 <= tmp2\n\n";
+	}else{
+		cout << "tmp1 !<= tmp2\n\n";
+	}
+
+	tmp1 = "alps";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 <= tmp2){
+		cout << "tmp1 <= tmp2\n\n";
+	}else{
+		cout << "tmp1 !<= tmp2\n\n";
+	}
+
+	tmp1 = "yeet";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 <= tmp2){
+		cout << "tmp1 <= tmp2\n\n";
+	}else{
+		cout << "tmp1 !<= tmp2\n\n";
+	}
+
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 > tmp2){
+		cout << "tmp1 > tmp2\n\n";
+	}else{
+		cout << "tmp1 !> tmp2\n\n";
+	}
+
+	tmp1 = "alps";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 > tmp2){
+		cout << "tmp1 > tmp2\n\n";
+	}else{
+		cout << "tmp1 !> tmp2\n\n";
+	}
+
+	tmp1 = "yeet";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 > tmp2){
+		cout << "tmp1 > tmp2\n\n";
+	}else{
+		cout << "tmp1 !> tmp2\n\n";
+	}
+
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 >= tmp2){
+		cout << "tmp1 >= tmp2\n\n";
+	}else{
+		cout << "tmp1 !>= tmp2\n\n";
+	}
+
+	tmp1 = "alps";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 >= tmp2){
+		cout << "tmp1 >= tmp2\n\n";
+	}else{
+		cout << "tmp1 !>= tmp2\n\n";
+	}
+
+	tmp1 = "yeet";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 >= tmp2){
+		cout << "tmp1 >= tmp2\n\n";
+	}else{
+		cout << "tmp1 !>= tmp2\n\n";
+	}
 
 	tmp1.~String();
 	tmp2.~String();

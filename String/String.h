@@ -36,43 +36,36 @@ class String{
 		friend String operator+(const char*, const String&);	// Concatenate two Strings into String
 		friend String operator+(const String&, char);			// Concatenate two Strings into String
 		friend String operator+(char, const String&);			// Concatenate two Strings into String
-
-		//friend bool operator==(const string&, const string&);	// Equal comparison
-		//friend bool operator==(const string&, const char*);		// Equal comparison
-		//friend bool operator==(const char*, const string&);		// Equal comparison
-		//friend bool operator==(const string&, char);			// Equal comparison
-		//friend bool operator==(char, const string&);			// Equal comparison
-
-		//friend bool operator!=(const string&, const string&);	// Not equal comparison
-		//friend bool operator!=(const string&, const char*);		// Not equal comparison
-		//friend bool operator!=(const char*, const string&);		// Not equal comparison
-		//friend bool operator!=(const string&, char);			// Not equal comparison
-		//friend bool operator!=(char, const string&);			// Not equal comparison
-
-		//friend bool operator<(const string&, const string&);	// Less than comparison
-		//friend bool operator<(const string&, const char*);		// Less than comparison
-		//friend bool operator<(const char*, const string&);		// Less than comparison
-		//friend bool operator<(const string&, char);				// Less than comparison
-		//friend bool operator<(char, const string&);				// Less than comparison
-
-		//friend bool operator<=(const string&, const string&);	// Less than or equal comparison
-		//friend bool operator<=(const string&, const char*);		// Less than or equal comparison
-		//friend bool operator<=(const char*, const string&);		// Less than or equal comparison
-		//friend bool operator<=(const string&, char);			// Less than or equal comparison
-		//friend bool operator<=(char, const string&);			// Less than or equal comparison
-
-		//friend bool operator>(const string&, const string&);	// Greater than comparison
-		//friend bool operator>(const string&, const char*);		// Greater than comparison
-		//friend bool operator>(const char*, const string&);		// Greater than comparison
-		//friend bool operator>(const string&, char);				// Greater than comparison
-		//friend bool operator>(char, const string&);				// Greater than comparison
-
-		//friend bool operator>=(const string&, const string&);	// Greater than or equal comparison
-		//friend bool operator>=(const string&, const char*);		// Greater than or equal comparison
-		//friend bool operator>=(const char*, const string&);		// Greater than or equal comparison
-		//friend bool operator>=(const string&, char);			// Greater than or equal comparison
-		//friend bool operator>=(char, const string&);			// Greater than or equal comparison
-
+		friend bool operator==(const String&, const String&);	// Equal comparison
+		friend bool operator==(const String&, const char*);		// Equal comparison
+		friend bool operator==(const char*, const String&);		// Equal comparison
+		friend bool operator==(const String&, char);			// Equal comparison
+		friend bool operator==(char, const String&);			// Equal comparison
+		friend bool operator!=(const String&, const String&);	// Not equal comparison
+		friend bool operator!=(const String&, const char*);		// Not equal comparison
+		friend bool operator!=(const char*, const String&);		// Not equal comparison
+		friend bool operator!=(const String&, char);			// Not equal comparison
+		friend bool operator!=(char, const String&);			// Not equal comparison
+		friend bool operator<(const String&, const String&);	// Less than comparison
+		friend bool operator<(const String&, const char*);		// Less than comparison
+		friend bool operator<(const char*, const String&);		// Less than comparison
+		friend bool operator<(const String&, char);				// Less than comparison
+		friend bool operator<(char, const String&);				// Less than comparison
+		friend bool operator<=(const String&, const String&);	// Less than or equal comparison
+		friend bool operator<=(const String&, const char*);		// Less than or equal comparison
+		friend bool operator<=(const char*, const String&);		// Less than or equal comparison
+		friend bool operator<=(const String&, char);			// Less than or equal comparison
+		friend bool operator<=(char, const String&);			// Less than or equal comparison
+		friend bool operator>(const String&, const String&);	// Greater than comparison
+		friend bool operator>(const String&, const char*);		// Greater than comparison
+		friend bool operator>(const char*, const String&);		// Greater than comparison
+		friend bool operator>(const String&, char);				// Greater than comparison
+		friend bool operator>(char, const String&);				// Greater than comparison
+		friend bool operator>=(const String&, const String&);	// Greater than or equal comparison
+		friend bool operator>=(const String&, const char*);		// Greater than or equal comparison
+		friend bool operator>=(const char*, const String&);		// Greater than or equal comparison
+		friend bool operator>=(const String&, char);			// Greater than or equal comparison
+		friend bool operator>=(char, const String&);			// Greater than or equal comparison
 		friend void swap(String&, String&);						// Swaps contents of the two Strings
 		//friend istream& getline(istream&, String&, char);
 		//friend istream& getline(istream&, String&);
@@ -129,14 +122,18 @@ class String{
 		int find_last_not_of(const char*, int index=0) const;	// Search this String for the last character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
 		int find_last_not_of(char, int index=0) const;			// Search this String for the last character that does not char starting at a position - ei.( 'Y' )
 		String substr(int index=0, int length=-1) const;		// Return a new String object that is a substring copy of this String
-		//int compare(const String&) const;						// Compare this String to String
-		//int compare(const char*) const;							// Compare this String to const char* - ei.( "Hello World" )
-		//int compare(char) const;								// Compare this String to char - ei.( 'Y' )
-																// 0	They are equal
-																// <0	Value of the first character that doesn't match is lower in the compared string, or all compared characters match but the compared string is shorter.
-																// >0	Value of the first character that doesn't match is higher in the compared string, or all compared characters match but the compared string is longer.
+		int compare(const String&) const;												// Compare this String to String
+		int compare(int index, int length, const String&) const;						// Compare this subString to String
+		int compare(int index, int length, const String&, int subin, int sublen) const;	// Compare this subString to subString
+		int compare(const char*) const;													// Compare this String to const char* - ei.( "Hello World" )
+		int compare(int index, int length, const char*) const;							// Compare this subString to const char* - ei.( "Hello World" )
+		// int compare(int index, int length, const char*, int sublen) const;				// Compare this subString to const char* buffer - ei.( "Hello World" )
+		int compare(char) const;														// Compare this String to char - ei.( 'Y' )
+																							// 0	They are equal
+																							// <0	Value of the first character that doesn't match is lower in the compared string, or all compared characters match but the compared string is shorter.
+																							// >0	Value of the first character that doesn't match is higher in the compared string, or all compared characters match but the compared string is longer.
 		// Debugging
-		void print();											// Print the entire string - For debugging only
+		void print();																	// Print the entire String - For debugging only
 };
 
 String::String(){
@@ -308,43 +305,196 @@ String operator+(char lhs, const String& rhs){
 	tmp.append(rhs);
 	return tmp;
 }
-
-//bool operator==(const string& lhs, const string& rhs){}
-//bool operator==(const string& lhs, const char* rhs){}
-//bool operator==(const char* lhs, const string& rhs){}
-//bool operator==(const string& lhs, char rhs){}
-//bool operator==(char lhs, const string& rhs){}
-
-//bool operator!=(const string& lhs, const string& rhs){}
-//bool operator!=(const string& lhs, const char* rhs){}
-//bool operator!=(const char* lhs, const string& rhs){}
-//bool operator!=(const string& lhs, char rhs){}
-//bool operator!=(char lhs, const string& rhs){}
-
-//bool operator<(const string& lhs, const string& rhs){}
-//bool operator<(const string& lhs, const char* rhs){}
-//bool operator<(const char* lhs, const string& rhs){}
-//bool operator<(const string& lhs, char rhs){}
-//bool operator<(char lhs, const string& rhs){}
-
-//bool operator<=(const string& lhs, const string& rhs){}
-//bool operator<=(const string& lhs, const char* rhs){}
-//bool operator<=(const char* lhs, const string& rhs){}
-//bool operator<=(const string& lhs, char rhs){}
-//bool operator>=(char lhs, const string& rhs){}
-
-//bool operator>(const string& lhs, const string& rhs){}
-//bool operator>(const string& lhs, const char* rhs){}
-//bool operator>(const char* lhs, const string& rhs){}
-//bool operator>(const string& lhs, char rhs){}
-//bool operator>(char lhs, const string& rhs){}
-
-//bool operator>=(const string& lhs, const string& rhs){}
-//bool operator>=(const string& lhs, const char* rhs){}
-//bool operator>=(const char* lhs, const string& rhs){}
-//bool operator>=(const string& lhs, char rhs){}
-//bool operator>=(char lhs, const string& rhs){}
-
+bool operator==(const String& lhs, const String& rhs){
+	if(lhs.compare(rhs) == 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator==(const String& lhs, const char* rhs){
+	if(lhs.compare(rhs) == 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator==(const char* lhs, const String& rhs){
+	if(rhs.compare(lhs) == 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator==(const String& lhs, char rhs){
+	if(lhs.compare(rhs) == 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator==(char lhs, const String& rhs){
+	if(rhs.compare(lhs) == 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator!=(const String& lhs, const String& rhs){
+	if(lhs.compare(rhs) != 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator!=(const String& lhs, const char* rhs){
+	if(lhs.compare(rhs) != 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator!=(const char* lhs, const String& rhs){
+	if(rhs.compare(lhs) != 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator!=(const String& lhs, char rhs){
+	if(lhs.compare(rhs) != 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator!=(char lhs, const String& rhs){
+	if(rhs.compare(lhs) != 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator<(const String& lhs, const String& rhs){
+	if(lhs.compare(rhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator<(const String& lhs, const char* rhs){
+	if(lhs.compare(rhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator<(const char* lhs, const String& rhs){
+	if(rhs.compare(lhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator<(const String& lhs, char rhs){
+	if(lhs.compare(rhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator<(char lhs, const String& rhs){
+	if(rhs.compare(lhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator<=(const String& lhs, const String& rhs){
+	return (lhs < rhs) || (lhs == rhs);
+}
+bool operator<=(const String& lhs, const char* rhs){
+	return (lhs < rhs) || (lhs == rhs);
+}
+bool operator<=(const char* lhs, const String& rhs){
+	return (lhs < rhs) || (lhs == rhs);
+}
+bool operator<=(const String& lhs, char rhs){
+	return (lhs < rhs) || (lhs == rhs);
+}
+bool operator<=(char lhs, const String& rhs){
+	return (lhs < rhs) || (lhs == rhs);
+}
+bool operator>(const String& lhs, const String& rhs){
+	if(lhs.compare(rhs) < 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator>(const String& lhs, const char* rhs){
+	if(lhs.compare(rhs) < 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator>(const char* lhs, const String& rhs){
+	if(rhs.compare(lhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator>(const String& lhs, char rhs){
+	if(lhs.compare(rhs) < 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator>(char lhs, const String& rhs){
+	if(rhs.compare(lhs) > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 0;
+}
+bool operator>=(const String& lhs, const String& rhs){
+	return (lhs > rhs) || (lhs == rhs);
+}
+bool operator>=(const String& lhs, const char* rhs){
+	return (lhs > rhs) || (lhs == rhs);
+}
+bool operator>=(const char* lhs, const String& rhs){
+	return (lhs > rhs) || (lhs == rhs);
+}
+bool operator>=(const String& lhs, char rhs){
+	return (lhs > rhs) || (lhs == rhs);
+}
+bool operator>=(char lhs, const String& rhs){
+	return (lhs > rhs) || (lhs == rhs);
+}
 void swap(String& x, String& y){
 	x.swap(y);
 }
@@ -876,12 +1026,114 @@ String String::substr(int x, int y) const{
 	}
 	return tmp;
 }
-//int String::compare(const String& x) const{
+int String::compare(const String& x) const{
+	int tmp = 0;
+	int loop;
+	if(size > x.sizeOf()){
+		loop = size;
+	}else{
+		loop = x.sizeOf();
+	}
+	for(int i=0; i<loop; i++){
+		if(at(i) == x.at(i)){
+			tmp++;
+		}else if(at(i) < x.at(i)){	
+			return 1;
+		}else if(at(i) > x.at(i)){	
+			return -1;
+		}
+	}
+	if(tmp == size){
+		return 0;
+	}
+	return 255;
+}
+int String::compare(int index, int length, const String& x) const{
+	int tmp = 0;
+	for(int i=0; i<length; i++){
+		if(at(i+index) == x.at(i)){
+			tmp++;
+		}else if(at(i+index) < x.at(i)){	
+			return 1;
+		}else if(at(i+index) > x.at(i)){	
+			return -1;
+		}
+	}
+	if(tmp == length){
+		return 0;
+	}
+	return 255;
+}
+int String::compare(int index, int length, const String& x, int subin, int sublen) const{
+	int tmp = 0;
+	for(int i=0; i<length; i++){
+		if(at(i+index) == x.at(i+subin)){
+			tmp++;
+		}else if(at(i+index) < x.at(i+subin)){	
+			return 1;
+		}else if(at(i+index) > x.at(i+subin)){	
+			return -1;
+		}
+	}
+	if(tmp == length){
+		return 0;
+	}
+	return 255;
+}
+int String::compare(const char* x) const{
+	int tmp = 0;
+	int loop;
+	int constsize = 0;
+	while(x[constsize] != '\0'){
+		constsize++;
+	}
+	if(size > constsize){
+		loop = size;
+	}else{
+		loop = constsize;
+	}
+	for(int i=0; i<loop; i++){
+		if(at(i) == x[i]){
+			tmp++;
+		}else if(at(i) < x[i]){	
+			return 1;
+		}else if(at(i) > x[i]){	
+			return -1;
+		}
+	}
+	if(tmp == size){
+		return 0;
+	}
+	return 255;
+}
+int String::compare(int index, int length, const char* x) const{
+	int tmp = 0;
+	for(int i=0; i<length; i++){
+		if(at(i+index) == x[i]){
+			tmp++;
+		}else if(at(i+index) < x[i]){	
+			return 1;
+		}else if(at(i+index) > x[i]){	
+			return -1;
+		}
+	}
+	if(tmp == length){
+		return 0;
+	}
+	return 255;
+}
+//int String::compare(int index, int length, const char* x, int sublen) const{
 //}
-//int String::compare(const char*) const{
-//}
-//int String::compare(char) const{
-//}
+int String::compare(char x) const{
+	if(at(0) == x){
+		return 0;
+	}else if(at(0) < x){	
+		return 1;
+	}else if(at(0) > x){	
+		return -1;
+	}
+	return 255;
+}
 // Debugging
 void String::print(){
 	str.print();
