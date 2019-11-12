@@ -668,51 +668,51 @@ int main(){
 	cout << "tmp1.compare(4, 4, \"test\"): ";
 	cout << tmp1.compare(4, 4, "test") << " (1)\n\n";
 
-	// cout << "------------------------------------\n";
-	// tmp1 = "test";
-	// tmp2 = "test";
-	// tmp1.print();
-	// cout << '\n';
-	// tmp2.print();
-	// if(tmp1 == tmp2){
-	// 	cout << "tmp1 == tmp2\n\n";
-	// }else{
-	// 	cout << "tmp1 and tmp2 are not equal\n\n";
-	// }
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 == tmp2){
+		cout << "tmp1 == tmp2\n\n";
+	}else{
+		cout << "tmp1 and tmp2 are not equal\n\n";
+	}
 
-	// tmp1 = "yeet";
-	// tmp2 = "test";
-	// tmp1.print();
-	// cout << '\n';
-	// tmp2.print();
-	// if(tmp1 == tmp2){
-	// 	cout << "tmp1 == tmp2\n\n";
-	// }else{
-	// 	cout << "tmp1 and tmp2 are not equal\n\n";
-	// }
+	tmp1 = "yeet";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 == tmp2){
+		cout << "tmp1 == tmp2\n\n";
+	}else{
+		cout << "tmp1 and tmp2 are not equal\n\n";
+	}
 
-	// cout << "------------------------------------\n";
-	// tmp1 = "test";
-	// tmp2 = "test";
-	// tmp1.print();
-	// cout << '\n';
-	// tmp2.print();
-	// if(tmp1 != tmp2){
-	// 	cout << "tmp1 != tmp2\n\n";
-	// }else{
-	// 	cout << "tmp1 and tmp2 are equal\n\n";
-	// }
+	cout << "------------------------------------\n";
+	tmp1 = "test";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 != tmp2){
+		cout << "tmp1 != tmp2\n\n";
+	}else{
+		cout << "tmp1 and tmp2 are equal\n\n";
+	}
 
-	// tmp1 = "yeet";
-	// tmp2 = "test";
-	// tmp1.print();
-	// cout << '\n';
-	// tmp2.print();
-	// if(tmp1 != tmp2){
-	// 	cout << "tmp1 != tmp2\n\n";
-	// }else{
-	// 	cout << "tmp1 and tmp2 are equal\n\n";
-	// }
+	tmp1 = "yeet";
+	tmp2 = "test";
+	tmp1.print();
+	cout << '\n';
+	tmp2.print();
+	if(tmp1 != tmp2){
+		cout << "tmp1 != tmp2\n\n";
+	}else{
+		cout << "tmp1 and tmp2 are equal\n\n";
+	}
 
 	cout << "------------------------------------\n";
 	tmp1 = "test";

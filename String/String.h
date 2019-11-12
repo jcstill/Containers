@@ -6,122 +6,122 @@ using namespace std;
 
 class String{
 	private:
-		int size;												// Current size of the String
-		int capacity;											// Total capacity of the String
-		List<char> str;											// Actual String stored as a list
-		char* array;											// Used for returning c strings (character arrays)
+		int size;																		// Current size of the String
+		int capacity;																	// Total capacity of the String
+		List<char> str;																	// Actual String stored as a list
+		char* array;																	// Used for returning c strings (character arrays)
 		// Internal Functions
-		void dcopy(const String&);								// Deep copy the String
-		void dcopy(const char*);								// Deep copy the String
-		void dcopy(char);										// Deep copy the String
+		void dcopy(const String&);														// Deep copy the String
+		void dcopy(const char*);														// Deep copy the String
+		void dcopy(char);																// Deep copy the String
 	public:
-		String();												// Default Constructor
-		String(int);											// Non-default Constructor
-		String(const String&);									// Copy Constructor
-		String(const char*);									// Copy Constructor
-		String(char);											// Copy Constructor
-		~String();												// Destructor
+		String();																		// Default Constructor
+		String(int);																	// Non-default Constructor
+		String(const String&);															// Copy Constructor
+		String(const char*);															// Copy Constructor
+		String(char);																	// Copy Constructor
+		~String();																		// Destructor
 		// Overloaded operators
-		String& operator=(const String&);						// Replaces this String with String passed in
-		String& operator=(const char*);							// Replaces this String with const char* passed in - ei.( "Hello World" )
-		String& operator=(char);								// Replaces this String with char passed in - ei.( 'Y' )
-		String& operator+=(const String&);						// Append String to end of this String
-		String& operator+=(const char*);						// Append const char* to end of this String - ei.( "Hello World" )
-		String& operator+=(char);								// Append char to end of this String - ei.( 'Y' )
-		char operator[](int) const;								// Return character in String
-		friend istream& operator>>(istream&, String&);			// Input stream operator
-		friend ostream& operator<<(ostream&, const String&);	// Output stream operator
-		friend String operator+(const String&, const String&);	// Concatenate two Strings into String
-		friend String operator+(const String&, const char*);	// Concatenate two Strings into String
-		friend String operator+(const char*, const String&);	// Concatenate two Strings into String
-		friend String operator+(const String&, char);			// Concatenate two Strings into String
-		friend String operator+(char, const String&);			// Concatenate two Strings into String
-		friend bool operator==(const String&, const String&);	// Equal comparison
-		friend bool operator==(const String&, const char*);		// Equal comparison
-		friend bool operator==(const char*, const String&);		// Equal comparison
-		friend bool operator==(const String&, char);			// Equal comparison
-		friend bool operator==(char, const String&);			// Equal comparison
-		friend bool operator!=(const String&, const String&);	// Not equal comparison
-		friend bool operator!=(const String&, const char*);		// Not equal comparison
-		friend bool operator!=(const char*, const String&);		// Not equal comparison
-		friend bool operator!=(const String&, char);			// Not equal comparison
-		friend bool operator!=(char, const String&);			// Not equal comparison
-		friend bool operator<(const String&, const String&);	// Less than comparison
-		friend bool operator<(const String&, const char*);		// Less than comparison
-		friend bool operator<(const char*, const String&);		// Less than comparison
-		friend bool operator<(const String&, char);				// Less than comparison
-		friend bool operator<(char, const String&);				// Less than comparison
-		friend bool operator<=(const String&, const String&);	// Less than or equal comparison
-		friend bool operator<=(const String&, const char*);		// Less than or equal comparison
-		friend bool operator<=(const char*, const String&);		// Less than or equal comparison
-		friend bool operator<=(const String&, char);			// Less than or equal comparison
-		friend bool operator<=(char, const String&);			// Less than or equal comparison
-		friend bool operator>(const String&, const String&);	// Greater than comparison
-		friend bool operator>(const String&, const char*);		// Greater than comparison
-		friend bool operator>(const char*, const String&);		// Greater than comparison
-		friend bool operator>(const String&, char);				// Greater than comparison
-		friend bool operator>(char, const String&);				// Greater than comparison
-		friend bool operator>=(const String&, const String&);	// Greater than or equal comparison
-		friend bool operator>=(const String&, const char*);		// Greater than or equal comparison
-		friend bool operator>=(const char*, const String&);		// Greater than or equal comparison
-		friend bool operator>=(const String&, char);			// Greater than or equal comparison
-		friend bool operator>=(char, const String&);			// Greater than or equal comparison
-		friend void swap(String&, String&);						// Swaps contents of the two Strings
+		String& operator=(const String&);												// Replaces this String with String passed in
+		String& operator=(const char*);													// Replaces this String with const char* passed in - ei.( "Hello World" )
+		String& operator=(char);														// Replaces this String with char passed in - ei.( 'Y' )
+		String& operator+=(const String&);												// Append String to end of this String
+		String& operator+=(const char*);												// Append const char* to end of this String - ei.( "Hello World" )
+		String& operator+=(char);														// Append char to end of this String - ei.( 'Y' )
+		char operator[](int) const;														// Return character in String
+		friend istream& operator>>(istream&, String&);									// Input stream operator
+		friend ostream& operator<<(ostream&, const String&);							// Output stream operator
+		friend String operator+(const String&, const String&);							// Concatenate two Strings into String
+		friend String operator+(const String&, const char*);							// Concatenate two Strings into String
+		friend String operator+(const char*, const String&);							// Concatenate two Strings into String
+		friend String operator+(const String&, char);									// Concatenate two Strings into String
+		friend String operator+(char, const String&);									// Concatenate two Strings into String
+		friend bool operator==(const String&, const String&);							// Equal comparison
+		friend bool operator==(const String&, const char*);								// Equal comparison
+		friend bool operator==(const char*, const String&);								// Equal comparison
+		friend bool operator==(const String&, char);									// Equal comparison
+		friend bool operator==(char, const String&);									// Equal comparison
+		friend bool operator!=(const String&, const String&);							// Not equal comparison
+		friend bool operator!=(const String&, const char*);								// Not equal comparison
+		friend bool operator!=(const char*, const String&);								// Not equal comparison
+		friend bool operator!=(const String&, char);									// Not equal comparison
+		friend bool operator!=(char, const String&);									// Not equal comparison
+		friend bool operator<(const String&, const String&);							// Less than comparison
+		friend bool operator<(const String&, const char*);								// Less than comparison
+		friend bool operator<(const char*, const String&);								// Less than comparison
+		friend bool operator<(const String&, char);										// Less than comparison
+		friend bool operator<(char, const String&);										// Less than comparison
+		friend bool operator<=(const String&, const String&);							// Less than or equal comparison
+		friend bool operator<=(const String&, const char*);								// Less than or equal comparison
+		friend bool operator<=(const char*, const String&);								// Less than or equal comparison
+		friend bool operator<=(const String&, char);									// Less than or equal comparison
+		friend bool operator<=(char, const String&);									// Less than or equal comparison
+		friend bool operator>(const String&, const String&);							// Greater than comparison
+		friend bool operator>(const String&, const char*);								// Greater than comparison
+		friend bool operator>(const char*, const String&);								// Greater than comparison
+		friend bool operator>(const String&, char);										// Greater than comparison
+		friend bool operator>(char, const String&);										// Greater than comparison
+		friend bool operator>=(const String&, const String&);							// Greater than or equal comparison
+		friend bool operator>=(const String&, const char*);								// Greater than or equal comparison
+		friend bool operator>=(const char*, const String&);								// Greater than or equal comparison
+		friend bool operator>=(const String&, char);									// Greater than or equal comparison
+		friend bool operator>=(char, const String&);									// Greater than or equal comparison
+		friend void swap(String&, String&);												// Swaps contents of the two Strings
 		//friend istream& getline(istream&, String&, char);
 		//friend istream& getline(istream&, String&);
 		// Capacity and sizing functions
-		int sizeOf() const;										// Returns size of the String
-		int length() const;										// Returns size of the String
-		void resize(int);										// Resize String - Can modify String
-		int capacityOf() const;									// Returns the size of allocated storage
-		void reserve(int=0);									// Resize String - Can't modify String
-		void clear();											// Clear the String - Resets capacity to 0
-		bool isEmpty();											// Check if String is empty
-		void shrink_to_fit();									// Shrink capacity to fit size
+		int sizeOf() const;																// Returns size of the String
+		int length() const;																// Returns size of the String
+		void resize(int);																// Resize String - Can modify String
+		int capacityOf() const;															// Returns the size of allocated storage
+		void reserve(int=0);															// Resize String - Can't modify String
+		void clear();																	// Clear the String - Resets capacity to 0
+		bool isEmpty();																	// Check if String is empty
+		void shrink_to_fit();															// Shrink capacity to fit size
 		// Element access
-		char at(int) const;										// Return character in String
-		char back() const;										// Return last character
-		char front() const;										// Return first character
+		char at(int) const;																// Return character in String
+		char back() const;																// Return last character
+		char front() const;																// Return first character
 		// Modifiers
-		String& append(const String&);							// Append String to end of this String
-		String& append(const char*);							// Append const char* to end of this String - ei.( "Hello World" )
-		String& append(char);									// Append char to end of this String - ei.( 'Y' )
-		void push_back(const char);								// Append character to String
-		String& assign(const String&);							// Replaces this String with String passed in
-		String& assign(const char*);							// Replaces this String with const char* passed in - ei.( "Hello World" )
-		String& assign(char);									// Replaces this String with char passed in - ei.( 'Y' )
-		String& insert(int index, const String&);				// Inserts a copy of String into this String
-		String& insert(int index, const char*);					// Inserts a copy of const char* into this String - ei.( "Hello World" )
-		String& insert(int index, char);						// Inserts a copy of char into this String - ei.( 'Y' )
-		void erase(int index=0, int length=-1);					// Erase portion of this String ()
-		String& replace(int index, int length, const String&);	// Replace portion of this String with String
-		String& replace(int index, int length, const char*);	// Replace portion of this String with const char* - ei.( "Hello World" )
-		String& replace(int index, int length, char);			// Replace portion of this String with char - ei.( 'Y' )
-		void swap(String&);										// Swaps contents of this String with String
-		void pop_back();										// Delete last character
+		String& append(const String&);													// Append String to end of this String
+		String& append(const char*);													// Append const char* to end of this String - ei.( "Hello World" )
+		String& append(char);															// Append char to end of this String - ei.( 'Y' )
+		void push_back(const char);														// Append character to String
+		String& assign(const String&);													// Replaces this String with String passed in
+		String& assign(const char*);													// Replaces this String with const char* passed in - ei.( "Hello World" )
+		String& assign(char);															// Replaces this String with char passed in - ei.( 'Y' )
+		String& insert(int index, const String&);										// Inserts a copy of String into this String
+		String& insert(int index, const char*);											// Inserts a copy of const char* into this String - ei.( "Hello World" )
+		String& insert(int index, char);												// Inserts a copy of char into this String - ei.( 'Y' )
+		void erase(int index=0, int length=-1);											// Erase portion of this String ()
+		String& replace(int index, int length, const String&);							// Replace portion of this String with String
+		String& replace(int index, int length, const char*);							// Replace portion of this String with const char* - ei.( "Hello World" )
+		String& replace(int index, int length, char);									// Replace portion of this String with char - ei.( 'Y' )
+		void swap(String&);																// Swaps contents of this String with String
+		void pop_back();																// Delete last character
 		// String Operations
-		const char* c_str();									// Return pointer to char array of String
-		const char* data();										// Return pointer to char array of String
-		int copy(char*, int length, int index=0) const;			// Copy portion of this String to a char array
-		int find(const String&, int index=0) const;				// Search this String for the first occurrence of String starting at a position
-		int find(const char*, int index=0) const;				// Search this String for the first occurrence of const char* starting at a position - ei.( "Hello World" )
-		int find(char, int index=0) const;						// Search this String for the first occurrence of char starting at a position - ei.( 'Y' )
-		int rfind(const String&, int index=0) const;			// Search this String for the last occurrence of String starting at a position
-		int rfind(const char*, int index=0) const;				// Search this String for the last occurrence of const char* starting at a position - ei.( "Hello World" )
-		int rfind(char, int index=0) const;						// Search this String for the last occurrence of char starting at a position - ei.( 'Y' )
-		int find_first_of(const String&, int index=0) const;	// Search this String for the first character that matches any of the charaters in String starting at a position
-		int find_first_of(const char*, int index=0) const;		// Search this String for the first character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_first_of(char, int index=0) const;				// Search this String for the first character that matches char starting at a position - ei.( 'Y' )
-		int find_last_of(const String&, int index=0) const;		// Search this String for the last character that matches any of the charaters in String starting at a position
-		int find_last_of(const char*, int index=0) const;		// Search this String for the last character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_last_of(char, int index=0) const;				// Search this String for the last character that matches char starting at a position - ei.( 'Y' )
-		int find_first_not_of(const String&, int index=0) const;// Search this String for the first character that does not match any of the charaters in String starting at a position
-		int find_first_not_of(const char*, int index=0) const;	// Search this String for the first character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_first_not_of(char, int index=0) const;			// Search this String for the first character that does not char starting at a position - ei.( 'Y' )
-		int find_last_not_of(const String&, int index=0)const;	// Search this String for the last character that does not match any of the charaters in String starting at a position
-		int find_last_not_of(const char*, int index=0) const;	// Search this String for the last character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
-		int find_last_not_of(char, int index=0) const;			// Search this String for the last character that does not char starting at a position - ei.( 'Y' )
-		String substr(int index=0, int length=-1) const;		// Return a new String object that is a substring copy of this String
+		const char* c_str();															// Return pointer to char array of String
+		const char* data();																// Return pointer to char array of String
+		int copy(char*, int length, int index=0) const;									// Copy portion of this String to a char array
+		int find(const String&, int index=0) const;										// Search this String for the first occurrence of String starting at a position
+		int find(const char*, int index=0) const;										// Search this String for the first occurrence of const char* starting at a position - ei.( "Hello World" )
+		int find(char, int index=0) const;												// Search this String for the first occurrence of char starting at a position - ei.( 'Y' )
+		int rfind(const String&, int index=0) const;									// Search this String for the last occurrence of String starting at a position
+		int rfind(const char*, int index=0) const;										// Search this String for the last occurrence of const char* starting at a position - ei.( "Hello World" )
+		int rfind(char, int index=0) const;												// Search this String for the last occurrence of char starting at a position - ei.( 'Y' )
+		int find_first_of(const String&, int index=0) const;							// Search this String for the first character that matches any of the charaters in String starting at a position
+		int find_first_of(const char*, int index=0) const;								// Search this String for the first character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_first_of(char, int index=0) const;										// Search this String for the first character that matches char starting at a position - ei.( 'Y' )
+		int find_last_of(const String&, int index=0) const;								// Search this String for the last character that matches any of the charaters in String starting at a position
+		int find_last_of(const char*, int index=0) const;								// Search this String for the last character that matches any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_last_of(char, int index=0) const;										// Search this String for the last character that matches char starting at a position - ei.( 'Y' )
+		int find_first_not_of(const String&, int index=0) const;						// Search this String for the first character that does not match any of the charaters in String starting at a position
+		int find_first_not_of(const char*, int index=0) const;							// Search this String for the first character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_first_not_of(char, int index=0) const;									// Search this String for the first character that does not char starting at a position - ei.( 'Y' )
+		int find_last_not_of(const String&, int index=0)const;							// Search this String for the last character that does not match any of the charaters in String starting at a position
+		int find_last_not_of(const char*, int index=0) const;							// Search this String for the last character that does not match any of the charaters in const char* starting at a position - ei.( "Hello World" )
+		int find_last_not_of(char, int index=0) const;									// Search this String for the last character that does not char starting at a position - ei.( 'Y' )
+		String substr(int index=0, int length=-1) const;								// Return a new String object that is a substring copy of this String
 		int compare(const String&) const;												// Compare this String to String
 		int compare(int index, int length, const String&) const;						// Compare this subString to String
 		int compare(int index, int length, const String&, int subin, int sublen) const;	// Compare this subString to subString
@@ -629,61 +629,61 @@ String& String::assign(char x){
 	capacity++;
 	return *this;
 }
-String& String::insert(int y, const String& x){
+String& String::insert(int index, const String& x){
 	for(int i=x.sizeOf()-1; i>=0; i--){
-		str.insert(x.at(i), y);
+		str.insert(x.at(i), index);
 		size++;
 		capacity++;
 	}
 	return *this;
 }
-String& String::insert(int y, const char* x){
+String& String::insert(int index, const char* x){
 	int constsize = 0;
 	while(x[constsize] != '\0'){
 		constsize++;
 	}
 	for(int i=constsize-1; i>=0; i--){
-		str.insert(x[i], y);
+		str.insert(x[i], index);
 		size++;
 		capacity++;
 	}
 	return *this;
 }
-String& String::insert(int y, char x){
-	str.insert(x, y);
+String& String::insert(int index, char x){
+	str.insert(x, index);
 	size++;
 	capacity++;
 	return *this;
 }
-void String::String::erase(int x, int y){
-	if(y == -1){
-		y=size;
+void String::String::erase(int index, int length){
+	if(length == -1){
+		length=size;
 	}
 	int tmp = 0;
-	if(x > y){
-		tmp = x;
-		x = y;
-		y = tmp;
+	if(index > length){
+		tmp = index;
+		index = length;
+		length = tmp;
 	}
-	str.clear(x, y);
-	tmp = y - x +1;
+	str.clear(index, length);
+	tmp = length - index +1;
 	size -= tmp;
 	capacity -= tmp;
 
 }
-String& String::replace(int y, int len, const String& x){
-	erase(y, y+len);
-	insert(y, x);
+String& String::replace(int index, int length, const String& x){
+	erase(index, index+length);
+	insert(index, x);
 	return *this;
 }
-String& String::replace(int y, int len, const char* x){
-	erase(y, y+len);
-	insert(y, x);
+String& String::replace(int index, int length, const char* x){
+	erase(index, index+length);
+	insert(index, x);
 	return *this;
 }
-String& String::replace(int y, int len, char x){
-	erase(y, y+len);
-	insert(y, x);
+String& String::replace(int index, int length, char x){
+	erase(index, index+length);
+	insert(index, x);
 	return *this;
 }
 void String::swap(String& x){
@@ -715,66 +715,66 @@ const char* String::data(){
 	array[size] = '\0';
 	return array;
 }
-int String::copy(char* x, int len, int y) const{
+int String::copy(char* x, int length, int index) const{
 	int constsize = 0;
-	for(int i=y; i<y+len; i++){
-		x[i-y] = at(i);
+	for(int i=index; i<index+length; i++){
+		x[i-index] = at(i);
 		constsize++;
 	}
 	return constsize;
 }
-int String::find(const String& x, int y) const{
+int String::find(const String& x, int index) const{
 	int xpos = 0;
-	while(y < size){
-		if(at(y) == x.at(xpos)){
+	while(index < size){
+		if(at(index) == x.at(xpos)){
 			xpos++;
-		}else if(at(y) == x.at(xpos-1)){
+		}else if(at(index) == x.at(xpos-1)){
 			xpos=1;
 		}else{
 			xpos=0;
 		}
 		if(xpos == x.sizeOf()){
-			return y-xpos+1;
+			return index-xpos+1;
 		}
-		y++;
+		index++;
 	}
 	return -1;
 }
-int String::find(const char* x, int y) const{
+int String::find(const char* x, int index) const{
 	int constsize = 0;
 	while(x[constsize] != '\0'){
 		constsize++;
 	}
 	int xpos = 0;
-	while(y < size){
-		if(at(y) == x[xpos]){
+	while(index < size){
+		if(at(index) == x[xpos]){
 			xpos++;
-		}else if(at(y) == x[xpos-1]){
+		}else if(at(index) == x[xpos-1]){
 			xpos=1;
 		}else{
 			xpos=0;
 		}
 		if(xpos == constsize){
-			return y-xpos+1;
+			return index-xpos+1;
 		}
-		y++;
+		index++;
 	}
 	return -1;
 }
-int String::find(char x, int y) const{
-	while(y < size){
-		if(at(y) == x){
-			return y;
+int String::find(char x, int index) const{
+	while(index < size){
+		if(at(index) == x){
+			return index;
 		}else{
-			y++;
+			index++;
 		}
 	}
 	return -1;
 }
-int String::rfind(const String& x, int y) const{
+int String::rfind(const String& x, int index) const{
 	int search = size-1;
 	int xpos = x.sizeOf()-1;
-	while(search >= y){
+	while(search >= index){
 		if(at(search) == x.at(xpos)){
 			xpos--;
 		}else if(at(search) == x.at(xpos+1)){
@@ -789,14 +789,14 @@ int String::rfind(const String& x, int y) const{
 	}
 	return -1;
 }
-int String::rfind(const char* x, int y) const{
+int String::rfind(const char* x, int index) const{
 	int constsize = 0;
 	while(x[constsize] != '\0'){
 		constsize++;
 	}
 	int search = size-1;
 	int xpos = constsize-1;
-	while(search >= y){
+	while(search >= index){
 		if(at(search) == x[xpos]){
 			xpos--;
 		}else if(at(search) == x[xpos+1]){
@@ -811,9 +811,9 @@ int String::rfind(const char* x, int y) const{
 	}
 	return -1;
 }
-int String::rfind(char x, int y) const{
+int String::rfind(char x, int index) const{
 	int search = size-1;
-	while(search >= y){
+	while(search >= index){
 		if(at(search) == x){
 			return search;
 		}else{
@@ -822,52 +822,52 @@ int String::rfind(char x, int y) const{
 	}
 	return -1;
 }
-int String::find_first_of(const String& x, int y) const{
+int String::find_first_of(const String& x, int index) const{
 	int xpos;
-	while(y < size){
+	while(index < size){
 		xpos = 0;
 		while(xpos < x.sizeOf()){
-			if(at(y) == x.at(xpos)){
-				return y;
+			if(at(index) == x.at(xpos)){
+				return index;
 			}
 			xpos++;
 		}
-		y++;
+		index++;
 	}
 	return -1;
 }
-int String::find_first_of(const char* x, int y) const{
+int String::find_first_of(const char* x, int index) const{
 	int constsize = 0;
 	while(x[constsize] != '\0'){
 		constsize++;
 	}
 	int xpos;
-	while(y < size){
+	while(index < size){
 		xpos = 0;
 		while(xpos < constsize){
-			if(at(y) == x[xpos]){
-				return y;
+			if(at(index) == x[xpos]){
+				return index;
 			}
 			xpos++;
 		}
-		y++;
+		index++;
 	}
 	return -1;
 }
-int String::find_first_of(char x, int y) const{
-	while(y < size){
-		if(at(y) == x){
-			return y;
+int String::find_first_of(char x, int index) const{
+	while(index < size){
+		if(at(index) == x){
+			return index;
 		}else{
-			y++;
+			index++;
 		}
 	}
 	return -1;
 }
-int String::find_last_of(const String& x, int y) const{
+int String::find_last_of(const String& x, int index) const{
 	int search = size-1;
 	int xpos;
-	while(search > y){
+	while(search > index){
 		xpos = 0;
 		while(xpos < x.sizeOf()){
 			if(at(search) == x[xpos]){
@@ -879,14 +879,14 @@ int String::find_last_of(const String& x, int y) const{
 	}
 	return -1;
 }
-int String::find_last_of(const char* x, int y) const{
+int String::find_last_of(const char* x, int index) const{
 	int search = size-1;
 	int constsize = 0;
 	while(x[constsize] != '\0'){
 		constsize++;
 	}
 	int xpos;
-	while(search > y){
+	while(search > index){
 		xpos = 0;
 		while(xpos < constsize){
 			if(at(search) == x[xpos]){
@@ -898,9 +898,9 @@ int String::find_last_of(const char* x, int y) const{
 	}
 	return -1;
 }
-int String::find_last_of(char x, int y) const{
+int String::find_last_of(char x, int index) const{
 	int search = size-1;
-	while(search >= y){
+	while(search >= index){
 		if(at(search) == x){
 			return search;
 		}else{
@@ -909,63 +909,63 @@ int String::find_last_of(char x, int y) const{
 	}
 	return -1;
 }
-int String::find_first_not_of(const String& x, int y) const{
+int String::find_first_not_of(const String& x, int index) const{
 	int xpos;
 	int tmp;
-	while(y < size){
+	while(index < size){
 		xpos = 0;
 		tmp = 0;
 		while(xpos < x.sizeOf()){
-			if(at(y) == x.at(xpos)){
+			if(at(index) == x.at(xpos)){
 				tmp++;
 			}
 			xpos++;
 		}
 		if(tmp == 0){
-			return y;
+			return index;
 		}
-		y++;
+		index++;
 	}
 	return -1;
 }
-int String::find_first_not_of(const char* x, int y) const{
+int String::find_first_not_of(const char* x, int index) const{
 	int constsize = 0;
 	while(x[constsize] != '\0'){
 		constsize++;
 	}
 	int xpos;
 	int tmp;
-	while(y < size){
+	while(index < size){
 		xpos = 0;
 		tmp = 0;
 		while(xpos < constsize){
-			if(at(y) == x[xpos]){
+			if(at(index) == x[xpos]){
 				tmp++;
 			}
 			xpos++;
 		}
 		if(tmp == 0){
-			return y;
+			return index;
 		}
-		y++;
+		index++;
 	}
 	return -1;
 }
-int String::find_first_not_of(char x, int y) const{
-	while(y < size){
-		if(at(y) != x){
-			return y;
+int String::find_first_not_of(char x, int index) const{
+	while(index < size){
+		if(at(index) != x){
+			return index;
 		}else{
-			y++;
+			index++;
 		}
 	}
 	return -1;
 }
-int String::find_last_not_of(const String& x, int y) const{
+int String::find_last_not_of(const String& x, int index) const{
 	int search = size-1;
 	int xpos;
 	int tmp;
-	while(search > y){
+	while(search > index){
 		xpos = 0;
 		tmp = 0;
 		while(xpos < x.sizeOf()){
@@ -981,7 +981,7 @@ int String::find_last_not_of(const String& x, int y) const{
 	}
 	return -1;
 }
-int String::find_last_not_of(const char* x, int y) const{
+int String::find_last_not_of(const char* x, int index) const{
 	int search = size-1;
 	int constsize = 0;
 	while(x[constsize] != '\0'){
@@ -989,7 +989,7 @@ int String::find_last_not_of(const char* x, int y) const{
 	}
 	int xpos;
 	int tmp;
-	while(search > y){
+	while(search > index){
 		xpos = 0;
 		tmp = 0;
 		while(xpos < constsize){
@@ -1005,9 +1005,9 @@ int String::find_last_not_of(const char* x, int y) const{
 	}
 	return -1;
 }
-int String::find_last_not_of(char x, int y) const{
+int String::find_last_not_of(char x, int index) const{
 	int search = size-1;
-	while(search >= y){
+	while(search >= index){
 		if(at(search) != x){
 			return search;
 		}else{
@@ -1016,12 +1016,12 @@ int String::find_last_not_of(char x, int y) const{
 	}
 	return -1;
 }
-String String::substr(int x, int y) const{
+String String::substr(int index, int length) const{
 	String tmp;
-	if(y == -1){
-		y=size;
+	if(length == -1){
+		length=size;
 	}
-	for(int i=x; i<x+y; i++){
+	for(int i=index; i<index+length; i++){
 		tmp.append(at(i));
 	}
 	return tmp;
