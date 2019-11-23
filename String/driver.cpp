@@ -420,12 +420,26 @@ int main(){
 	cout << "data of tmp3" << '\n';
 	cout << tmp3.data() << "\n\n";
 
-	//cin >> tmp5;
-	tmp5 = "sdfs";
-	tmp5.print();
-	cout << '\n';
-	cout << tmp5 << " Test\n\n";
+	// cout << "enter1: ";
+	// cin >> tmp5;
+	// cin.ignore(10000, '\n');
+	// tmp5.print();
+	// cout << '\n';
+	// cout << tmp5 << "\n\n";
 
+	// cout << "enter2: ";
+	// getline(cin, tmp5);
+	// tmp5.print();
+	// cout << '\n';
+	// cout << tmp5 << "\n\n";
+
+	// cout << "enter3: ";
+	// getline(cin, tmp5, 'S');
+	// tmp5.print();
+	// cout << '\n';
+	// cout << tmp5 << "\n\n";
+
+	tmp5 = "yetsyu";
 	cout << "tmp5 before concat:\n";
 	tmp5.print();
 	cout << '\n';

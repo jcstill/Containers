@@ -67,12 +67,13 @@ class String{
 		friend bool operator>=(const String&, char);									// Greater than or equal comparison
 		friend bool operator>=(char, const String&);									// Greater than or equal comparison
 		friend void swap(String&, String&);												// Swaps contents of the two Strings
-		//friend istream& getline(istream&, String&, char);
-		//friend istream& getline(istream&, String&);
+		friend istream& getline(istream&, String&, char);
+		friend istream& getline(istream&, String&);
 		// Capacity and sizing functions
 		int sizeOf() const;																// Returns size of the String
 		int length() const;																// Returns size of the String
 		void resize(int);																// Resize String - Can modify String
+		void resize(int, char);															// Resize String and fill new spaces with char
 		int capacityOf() const;															// Returns the size of allocated storage
 		void reserve(int=0);															// Resize String - Can't modify String
 		void clear();																	// Clear the String - Resets capacity to 0
@@ -84,19 +85,31 @@ class String{
 		char front() const;																// Return first character
 		// Modifiers
 		String& append(const String&);													// Append String to end of this String
+		String& append(const String&, int subin, int sublen);							// Append subString to end of this String
 		String& append(const char*);													// Append const char* to end of this String - ei.( "Hello World" )
+		String& append(const char*, int);												// Append first n chars of const char* to end of this String - ei.( "Hello World" )
 		String& append(char);															// Append char to end of this String - ei.( 'Y' )
+		String& append(int, char);														// Append char to end of this String n times - ei.( 'Y' )
 		void push_back(const char);														// Append character to String
 		String& assign(const String&);													// Replaces this String with String passed in
+		String& assign(const String&, int subin, int sublen);							// Replaces this String with subString passed in
 		String& assign(const char*);													// Replaces this String with const char* passed in - ei.( "Hello World" )
+		String& assign(const char*, int);												// Replaces this String with first n chars of const char* passed in - ei.( "Hello World" )
 		String& assign(char);															// Replaces this String with char passed in - ei.( 'Y' )
+		String& assign(int, char);														// Replaces this String with char n times - ei.( 'Y' )
 		String& insert(int index, const String&);										// Inserts a copy of String into this String
+		String& insert(int index, const String&, int subin, int sublen);				// Inserts a copy of subString into this String
 		String& insert(int index, const char*);											// Inserts a copy of const char* into this String - ei.( "Hello World" )
+		String& insert(int index, const char*, int);									// Inserts a copy of first n chars of const char* into this String - ei.( "Hello World" )
 		String& insert(int index, char);												// Inserts a copy of char into this String - ei.( 'Y' )
+		String& insert(int index, int, char);											// Inserts a copy of char into this String n times - ei.( 'Y' )
 		void erase(int index=0, int length=-1);											// Erase portion of this String ()
 		String& replace(int index, int length, const String&);							// Replace portion of this String with String
+		String& replace(int index, int length, const String&, int subin, int sublen);	// Replace portion of this String with subString
 		String& replace(int index, int length, const char*);							// Replace portion of this String with const char* - ei.( "Hello World" )
+		String& replace(int index, int length, const char*, int);						// Replace portion of this String with first n chars of const char* - ei.( "Hello World" )
 		String& replace(int index, int length, char);									// Replace portion of this String with char - ei.( 'Y' )
+		String& replace(int index, int length, int, char);								// Replace portion of this String with char n times - ei.( 'Y' )
 		void swap(String&);																// Swaps contents of this String with String
 		void pop_back();																// Delete last character
 		// String Operations
@@ -265,12 +278,13 @@ istream& operator>>(istream& is, String& x){
 	x.clear();
 	is.clear();
 	while(is.get(tmp)){
-		if(tmp != '\n'){
+		if(tmp != '\n' && tmp != ' '){
 			x.append(tmp);
 		}else{
 			break;
 		}
 	}
+	// is.ignore(10000);					// std doesn't ignore the input buffer
 	return is;
 }
 ostream& operator<<(ostream& os, const String& x){
@@ -498,8 +512,34 @@ bool operator>=(char lhs, const String& rhs){
 void swap(String& x, String& y){
 	x.swap(y);
 }
-//istream& getline(istream& is, String& x, char delim);
-//istream& getline(istream& is, String& x);
+istream& getline(istream& is, String& x, char delim){
+	char tmp;
+	x.clear();
+	is.clear();
+	while(is.get(tmp)){
+		if(tmp != delim){
+			x.append(tmp);
+		}else{
+			break;
+		}
+	}
+	// is.ignore(10000);					// std doesn't ignore the input buffer
+	return is;
+}
+istream& getline(istream& is, String& x){
+	char tmp;
+	x.clear();
+	is.clear();
+	while(is.get(tmp)){
+		if(tmp != '\n'){
+			x.append(tmp);
+		}else{
+			break;
+		}
+	}
+	// is.ignore(10000);					// std doesn't ignore the input buffer
+	return is;
+}
 // Capacity and sizing functions
 void String::pop_back(){
 	str.pop_back();
@@ -521,6 +561,19 @@ void String::resize(int x){
 	if(x > size){
 		for(int i=size-x; i<0; i++){
 			str.push_back('\0');
+		}
+	}else if(x < size){
+		for(int i=x; i<size; i++){
+			str.pop_back();
+		}
+	}
+	size = x;
+	capacity = x;
+}
+void String::resize(int x, char y){
+	if(x > size){
+		for(int i=size-x; i<0; i++){
+			str.push_back(y);
 		}
 	}else if(x < size){
 		for(int i=x; i<size; i++){
@@ -582,6 +635,14 @@ String& String::append(const String& x){
 	}
 	return *this;
 }
+String& String::append(const String& x, int subin, int sublen){
+	for(int i=subin; i<sublen; i++){
+		str.push_back(x.at(i));
+		size++;
+		capacity++;
+	}
+	return *this;
+}
 String& String::append(const char* x){
 	int constsize = 0;
 	while(x[constsize] != '\0'){
@@ -594,15 +655,43 @@ String& String::append(const char* x){
 	}
 	return *this;
 }
+String& String::append(const char* x, int size){
+	for(int i=0; i<size; i++){
+		if(x[i] == '\0'){
+			return *this;
+		}
+		str.push_back(x[i]);
+		size++;
+		capacity++;
+	}
+	return *this;
+}
 String& String::append(char x){
 	str.push_back(x);
 	size++;
 	capacity++;
 	return *this;
 }
+String& String::append(int n, char x){
+	for(int i=0; i<n; i++){
+		str.push_back(x);
+		size++;
+		capacity++;
+	}
+	return *this;
+}
 String& String::assign(const String& x){
 	clear();
 	for(int i=0; i<x.sizeOf(); i++){
+		str.push_back(x.at(i));
+		size++;
+		capacity++;
+	}
+	return *this;
+}
+String& String::assign(const String& x, int subin, int sublen){
+	clear();
+	for(int i=subin; i<sublen; i++){
 		str.push_back(x.at(i));
 		size++;
 		capacity++;
@@ -622,6 +711,18 @@ String& String::assign(const char* x){
 	}
 	return *this;
 }
+String& String::assign(const char* x, int size){
+	clear();
+	for(int i=0; i<size; i++){
+		if(x[i] == '\0'){
+			return *this;
+		}
+		str.push_back(x[i]);
+		size++;
+		capacity++;
+	}
+	return *this;
+}
 String& String::assign(char x){
 	clear();
 	str.push_back(x);
@@ -629,8 +730,25 @@ String& String::assign(char x){
 	capacity++;
 	return *this;
 }
+String& String::assign(int n, char x){
+	clear();
+	for(int i=0; i<n; i++){
+		str.push_back(x);
+		size++;
+		capacity++;
+	}
+	return *this;
+}
 String& String::insert(int index, const String& x){
 	for(int i=x.sizeOf()-1; i>=0; i--){
+		str.insert(x.at(i), index);
+		size++;
+		capacity++;
+	}
+	return *this;
+}
+String& String::insert(int index, const String& x, int subin, int sublen){
+	for(int i=sublen-1; i>=subin; i--){
 		str.insert(x.at(i), index);
 		size++;
 		capacity++;
@@ -649,10 +767,29 @@ String& String::insert(int index, const char* x){
 	}
 	return *this;
 }
+String& String::insert(int index, const char* x, int size){
+	for(int i=size-1; i>=0; i--){
+		if(x[i] == '\0'){
+			return *this;
+		}
+		str.insert(x[i], index);
+		size++;
+		capacity++;
+	}
+	return *this;
+}
 String& String::insert(int index, char x){
 	str.insert(x, index);
 	size++;
 	capacity++;
+	return *this;
+}
+String& String::insert(int index, int n, char x){
+	for(int i=0; i<n; i++){
+		str.insert(x, index);
+		size++;
+		capacity++;
+	}
 	return *this;
 }
 void String::String::erase(int index, int length){
@@ -676,14 +813,29 @@ String& String::replace(int index, int length, const String& x){
 	insert(index, x);
 	return *this;
 }
+String& String::replace(int index, int length, const String& x, int subin, int sublen){
+	erase(index, index+length);
+	insert(index, x, subin, sublen);
+	return *this;
+}
 String& String::replace(int index, int length, const char* x){
 	erase(index, index+length);
 	insert(index, x);
 	return *this;
 }
+String& String::replace(int index, int length, const char* x, int size){
+	erase(index, index+length);
+	insert(index, x, size);
+	return *this;
+}
 String& String::replace(int index, int length, char x){
 	erase(index, index+length);
 	insert(index, x);
+	return *this;
+}
+String& String::replace(int index, int length, int n, char x){
+	erase(index, index+length);
+	insert(index, n, x);
 	return *this;
 }
 void String::swap(String& x){
@@ -1122,8 +1274,22 @@ int String::compare(int index, int length, const char* x) const{
 	}
 	return 255;
 }
-//int String::compare(int index, int length, const char* x, int sublen) const{
-//}
+// int String::compare(int index, int length, const char* x, int sublen) const{
+// 	int tmp = 0;
+// 	for(int i=0; i<length; i++){
+// 		if(at(i+index) == x[i]){
+// 			tmp++;
+// 		}else if(at(i+index) < x[i]){	
+// 			return 1;
+// 		}else if(at(i+index) > x[i]){	
+// 			return -1;
+// 		}
+// 	}
+// 	if(tmp == length){
+// 		return 0;
+// 	}
+// 	return 255;
+// }
 int String::compare(char x) const{
 	if(at(0) == x){
 		return 0;

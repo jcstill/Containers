@@ -242,7 +242,27 @@ template<class T>void List<T>::print(){
 	node<T> *current = first;
 	for(int i=0; i<count; i++){
 		if(current != nullptr){
-			cout << "Index [" << i << "] is: " << current -> data << '\n';
+			if(current -> data == '\0'){
+				cout << "Index [" << i << "] is: \\0\n";
+			}else if(current -> data == '\a'){
+				cout << "Index [" << i << "] is: \\a\n";
+			}else if(current -> data == '\b'){
+				cout << "Index [" << i << "] is: \\b\n";
+			}else if(current -> data == '\t'){
+				cout << "Index [" << i << "] is: \\t\n";
+			}else if(current -> data == '\n'){
+				cout << "Index [" << i << "] is: \\n\n";
+			}else if(current -> data == '\v'){
+				cout << "Index [" << i << "] is: \\v\n";
+			}else if(current -> data == '\f'){
+				cout << "Index [" << i << "] is: \\f\n";
+			}else if(current -> data == '\r'){
+				cout << "Index [" << i << "] is: \\r\n";
+			}else if(current -> data == '\e'){
+				cout << "Index [" << i << "] is: \\e\n";
+			}else{
+				cout << "Index [" << i << "] is: " << current -> data << '\n';
+			}
 		}
 		current = current -> next;
 	}
