@@ -1,0 +1,1 @@
+This is a basic clone of the C++ STL container classes written from scratch by me. This is mainly to expand my knowledge on containers and how they work.
