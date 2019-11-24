@@ -1,4 +1,5 @@
 #include "String.h"
+#include <typeinfo>
 
 int main(){
 	String tmp1;
@@ -863,6 +864,127 @@ int main(){
 	}else{
 		cout << "tmp1 !>= tmp2\n\n";
 	}
+
+	int test;
+	unsigned int utest;
+	long ltest;
+	long long lltest;
+	unsigned long ultest;
+	unsigned long long ulltest;
+	float ftest;
+	double dtest;
+	long double ldtest;
+
+	cout << "------------------------------------\n";
+	tmp1 = "1256";
+	test = Stoi(tmp1);
+	cout << "stoi(\"1256\"): " << test << " + 1 = " << test+1 << ' ' << typeid(test).name() << '\n';
+
+	tmp1 = "1256";
+	utest = Stou(tmp1);
+	cout << "stou(\"1256\"): " << utest << " + 1 = " << utest+1 << ' ' << typeid(utest).name() << '\n';
+
+	tmp1 = "1256";
+	ltest = Stol(tmp1);
+	cout << "stol(\"1256\"): " << ltest << " + 1 = " << ltest+1 << ' ' << typeid(ltest).name() << '\n';
+
+	tmp1 = "1256";
+	lltest = Stoll(tmp1);
+	cout << "stoll(\"1256\"): " << lltest << " + 1 = " << lltest+1 << ' ' << typeid(lltest).name() << '\n';
+
+	tmp1 = "1256";
+	ultest = Stoul(tmp1);
+	cout << "stoul(\"1256\"): " << ultest << " + 1 = " << ultest+1 << ' ' << typeid(ultest).name() << '\n';
+
+	tmp1 = "1256";
+	ulltest = Stoull(tmp1);
+	cout << "stoull(\"1256\"): " << ulltest << " + 1 = " << ulltest+1 << ' ' << typeid(ulltest).name() << '\n';
+
+	tmp1 = "1256";
+	ftest = Stof(tmp1);
+	cout << "stof(\"1256\"): " << ftest << " + 1 = " << ftest+1 << ' ' << typeid(ftest).name() << '\n';
+
+	tmp1 = "1256";
+	dtest = Stod(tmp1);
+	cout << "stod(\"1256\"): " << dtest << " + 1 = " << dtest+1 << ' ' << typeid(dtest).name() << '\n';
+
+	tmp1 = "1256";
+	ldtest = Stold(tmp1);
+	cout << "stold(\"1256\"): " << ldtest << " + 1 = " << ldtest+1 << ' ' << typeid(ldtest).name() << '\n';
+
+	cout << "------------------------------------\n";
+	tmp1 = "54.2734";
+	test = Stoi(tmp1);
+	cout << "stoi(\"54.2734\"): " << test << " + 1 = " << test+1 << ' ' << typeid(test).name() << '\n';
+
+	tmp1 = "54.2734";
+	utest = Stou(tmp1);
+	cout << "stou(\"54.2734\"): " << utest << " + 1 = " << utest+1 << ' ' << typeid(utest).name() << '\n';
+
+	tmp1 = "54.2734";
+	ltest = Stol(tmp1);
+	cout << "stol(\"54.2734\"): " << ltest << " + 1 = " << ltest+1 << ' ' << typeid(ltest).name() << '\n';
+
+	tmp1 = "54.2734";
+	lltest = Stoll(tmp1);
+	cout << "stoll(\"54.2734\"): " << lltest << " + 1 = " << lltest+1 << ' ' << typeid(lltest).name() << '\n';
+
+	tmp1 = "54.2734";
+	ultest = Stoul(tmp1);
+	cout << "stoul(\"54.2734\"): " << ultest << " + 1 = " << ultest+1 << ' ' << typeid(ultest).name() << '\n';
+
+	tmp1 = "54.2734";
+	ulltest = Stoull(tmp1);
+	cout << "stoull(\"54.2734\"): " << ulltest << " + 1 = " << ulltest+1 << ' ' << typeid(ulltest).name() << '\n';
+
+	tmp1 = "54.2734";
+	ftest = Stof(tmp1);
+	cout << "stof(\"54.2734\"): " << ftest << " + 1 = " << ftest+1 << ' ' << typeid(ftest).name() << '\n';
+
+	tmp1 = "54.2734";
+	dtest = Stod(tmp1);
+	cout << "stod(\"54.2734\"): " << dtest << " + 1 = " << dtest+1 << ' ' << typeid(dtest).name() << '\n';
+
+	tmp1 = "54.2734";
+	ldtest = Stold(tmp1);
+	cout << "stold(\"54.2734\"): " << ldtest << " + 1 = " << ldtest+1 << ' ' << typeid(ldtest).name() << '\n';
+
+	cout << "------------------------------------\n";
+	test = 498.34;
+	tmp1 = to_String(test);
+	cout << "to_String(" << test << "): \"" << tmp1 << "\" " << typeid(test).name() << '\n';
+
+	utest = 498.34;
+	tmp1 = to_String(utest);
+	cout << "to_String(" << utest << "): \"" << tmp1 << "\" " << typeid(utest).name() << '\n';
+
+	ltest = 498.34;
+	tmp1 = to_String(ltest);
+	cout << "to_String(" << ltest << "): \"" << tmp1 << "\" " << typeid(ltest).name() << '\n';
+
+	lltest = 498.34;
+	tmp1 = to_String(lltest);
+	cout << "to_String(" << lltest << "): \"" << tmp1 << "\" " << typeid(lltest).name() << '\n';
+
+	ultest = 498.34;
+	tmp1 = to_String(ultest);
+	cout << "to_String(" << ultest << "): \"" << tmp1 << "\" " << typeid(ultest).name() << '\n';
+
+	ulltest = 498.34;
+	tmp1 = to_String(ulltest);
+	cout << "to_String(" << ulltest << "): \"" << tmp1 << "\" " << typeid(ulltest).name() << '\n';
+
+	ftest = 498.34;
+	tmp1 = to_String(ftest);
+	cout << "to_String(" << ftest << "): \"" << tmp1 << "\" " << typeid(ftest).name() << '\n';
+
+	dtest = 498.34;
+	tmp1 = to_String(dtest);
+	cout << "to_String(" << dtest << "): \"" << tmp1 << "\" " << typeid(dtest).name() << '\n';
+
+	ldtest = (long double)498.34;
+	tmp1 = to_String(ldtest);
+	cout << "to_String(" << ldtest << "): \"" << tmp1 << "\" " << typeid(ldtest).name() << '\n';
 
 	tmp1.~String();
 	tmp2.~String();

@@ -145,6 +145,25 @@ class String{
 																							// 0	They are equal
 																							// <0	Value of the first character that doesn't match is lower in the compared string, or all compared characters match but the compared string is shorter.
 																							// >0	Value of the first character that doesn't match is higher in the compared string, or all compared characters match but the compared string is longer.
+		// Conversion Functions
+		friend String to_String(int x);													// Convert int to String
+		friend String to_String(long x);												// Convert unsigned int to String
+		friend String to_String(long long x);											// Convert long to String
+		friend String to_String(unsigned int x);										// Convert long long to String
+		friend String to_String(unsigned long x);										// Convert unsigned long to String
+		friend String to_String(unsigned long long x);									// Convert unsigned long long to String
+		friend String to_String(float x);												// Convert float to String
+		friend String to_String(double x);												// Convert double to String
+		friend String to_String(long double x);											// Convert long double to String
+		friend int Stoi(const String&, int idx=0, int base=10);							// Convert String to int
+		friend unsigned int Stou(const String&, int idx=0, int base=10);				// Convert String to unsigned int
+		friend long Stol(const String&, int idx=0, int base=10);						// Convert String to long
+		friend long long Stoll(const String&, int idx=0, int base=10);					// Convert String to long long
+		friend unsigned long Stoul(const String&, int idx=0, int base=10);				// Convert String to unsigned long
+		friend unsigned long long Stoull(const String&, int idx=0, int base=10);		// Convert String to unsigned long long
+		friend float Stof(const String&, int idx=0, int base=10);						// Convert String to float
+		friend double Stod(const String&, int idx=0, int base=10);						// Convert String to double
+		friend long double Stold(const String&, int idx=0, int base=10);				// Convert String to long double
 		// Debugging
 		void print();																	// Print the entire String - For debugging only
 };
@@ -1299,6 +1318,508 @@ int String::compare(char x) const{
 		return -1;
 	}
 	return 255;
+}
+// Conversion Functions
+String to_String(int x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((x % result) - (x % (result/10))) / (result/10)+48);
+	}
+	return t;
+}
+String to_String(long x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((x % result) - (x % (result/10))) / (result/10)+48);
+	}
+	return t;
+}
+String to_String(long long x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((x % result) - (x % (result/10))) / (result/10)+48);
+	}
+	return t;
+}
+String to_String(unsigned int x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((x % result) - (x % (result/10))) / (result/10)+48);
+	}
+	return t;
+}
+String to_String(unsigned long x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((x % result) - (x % (result/10))) / (result/10)+48);
+	}
+	return t;
+}
+String to_String(unsigned long long x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((x % result) - (x % (result/10))) / (result/10)+48);
+	}
+	return t;
+}
+String to_String(float x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((int(x) % result) - (int(x) % (result/10))) / (result/10)+48);
+	}
+	float fmp = x - int(x);
+	if(fmp > 0){
+		fmp = x - int(x);
+		t.append('.');
+		while(fmp != 0){
+			fmp = fmp*10;
+			t.append(int(fmp)+48);
+			fmp = fmp-int(fmp);
+		}
+	}else if(fmp < 0){
+		t.clear();
+		t.append("GENERAL ERROR");
+	}
+	return t;
+}
+String to_String(double x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((int(x) % result) - (int(x) % (result/10))) / (result/10)+48);
+	}
+	double fmp = x - int(x);
+	if(fmp > 0){
+		fmp = x - int(x);
+		t.append('.');
+		while(fmp != 0){
+			fmp = fmp*10;
+			t.append(int(fmp)+48);
+			fmp = fmp-int(fmp);
+		}
+	}else if(fmp < 0){
+		t.clear();
+		t.append("GENERAL ERROR");
+	}
+	return t;
+}
+String to_String(long double x){
+	String t;
+	int count = 0;
+	int tmp = x;
+	while(tmp>0){
+		tmp/=10;
+		count++;
+	}
+	for(int i=count; i>=1; i--){
+		int result = 1;
+		for (int w=1; w<=i; w++){
+			result = result*10;
+		}
+		t.append(((int(x) % result) - (int(x) % (result/10))) / (result/10)+48);
+	}
+	long double fmp = x - int(x);
+	if(fmp > 0){
+		fmp = x - int(x);
+		t.append('.');
+		while(fmp != 0){
+			fmp = fmp*10;
+			t.append(int(fmp)+48);
+			fmp = fmp-int(fmp);
+		}
+	}else if(fmp < 0){
+		t.clear();
+		t.append("GENERAL ERROR");
+	}
+	return t;
+}
+int Stoi(const String& x, int idx, int base){
+	String convert;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	int tmp = 0;
+	int power = 0;
+	for(int i=0; i<convert.sizeOf(); i++){
+		power = convert.sizeOf()-i-1;
+		int result = 1;
+		for (int w=1; w<=power; w++){
+			result = result*10;
+		}
+		tmp = tmp + ((convert.at(i)-48) * result);
+	}
+	return tmp;
+}
+unsigned int Stou(const String& x, int idx, int base){
+	String convert;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	unsigned int tmp = 0;
+	int power = 0;
+	for(int i=0; i<convert.sizeOf(); i++){
+		power = convert.sizeOf()-i-1;
+		int result = 1;
+		for (int w=1; w<=power; w++){
+			result = result*10;
+		}
+		tmp = tmp + ((convert.at(i)-48) * result);
+	}
+	return tmp;
+}
+long Stol(const String& x, int idx, int base){
+	String convert;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	long tmp = 0;
+	int power = 0;
+	for(int i=0; i<convert.sizeOf(); i++){
+		power = convert.sizeOf()-i-1;
+		int result = 1;
+		for (int w=1; w<=power; w++){
+			result = result*10;
+		}
+		tmp = tmp + ((convert.at(i)-48) * result);
+	}
+	return tmp;
+}
+long long Stoll(const String& x, int idx, int base){
+	String convert;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	long long tmp = 0;
+	int power = 0;
+	for(int i=0; i<convert.sizeOf(); i++){
+		power = convert.sizeOf()-i-1;
+		int result = 1;
+		for (int w=1; w<=power; w++){
+			result = result*10;
+		}
+		tmp = tmp + ((convert.at(i)-48) * result);
+	}
+	return tmp;
+}
+unsigned long Stoul(const String& x, int idx, int base){
+	String convert;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	unsigned long tmp = 0;
+	int power = 0;
+	for(int i=0; i<convert.sizeOf(); i++){
+		power = convert.sizeOf()-i-1;
+		int result = 1;
+		for (int w=1; w<=power; w++){
+			result = result*10;
+		}
+		tmp = tmp + ((convert.at(i)-48) * result);
+	}
+	return tmp;
+}
+unsigned long long Stoull(const String& x, int idx, int base){
+	String convert;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	unsigned long long tmp = 0;
+	int power = 0;
+	for(int i=0; i<convert.sizeOf(); i++){
+		power = convert.sizeOf()-i-1;
+		int result = 1;
+		for (int w=1; w<=power; w++){
+			result = result*10;
+		}
+		tmp = tmp + ((convert.at(i)-48) * result);
+	}
+	return tmp;
+}
+float Stof(const String& x, int idx, int base){
+	String convert;
+	bool decimal = false;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else if(x.at(i) == '.'){
+			decimal = true;
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	float tmp = 0;
+	float tmp2 = 0;
+	int power = 0;
+	if(decimal){
+		int index = 0;
+		while(convert.at(index) != '.'){
+			index++;
+		}
+		for(int i=0; i<index; i++){
+			power = index-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp = tmp + ((convert.at(i)-48) * result);
+		}
+		int count = index;
+		int power2 = 0;
+		while(convert.at(index) != '\0'){
+			index++;
+		}
+		for(int i=count+1; i<convert.sizeOf(); i++){
+			power2++;
+			power = index-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp2 = tmp2 + ((convert.at(i)-48) * result);
+		}
+		int result = 1;
+		for (int w=1; w<=power2; w++){
+			result = result*10;
+		}
+		tmp2 /= result;
+		tmp += tmp2;
+	}else{
+		for(int i=0; i<convert.sizeOf(); i++){
+			power = convert.sizeOf()-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp = tmp + ((convert.at(i)-48) * result);
+		}
+	}
+	return tmp;
+}
+double Stod(const String& x, int idx, int base){
+	String convert;
+	bool decimal = false;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else if(x.at(i) == '.'){
+			decimal = true;
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	double tmp = 0;
+	double tmp2 = 0;
+	int power = 0;
+	if(decimal){
+		int index = 0;
+		while(convert.at(index) != '.'){
+			index++;
+		}
+		for(int i=0; i<index; i++){
+			power = index-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp = tmp + ((convert.at(i)-48) * result);
+		}
+		int count = index;
+		int power2 = 0;
+		while(convert.at(index) != '\0'){
+			index++;
+		}
+		for(int i=count+1; i<convert.sizeOf(); i++){
+			power2++;
+			power = index-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp2 = tmp2 + ((convert.at(i)-48) * result);
+		}
+		int result = 1;
+		for (int w=1; w<=power2; w++){
+			result = result*10;
+		}
+		tmp2 /= result;
+		tmp += tmp2;
+	}else{
+		for(int i=0; i<convert.sizeOf(); i++){
+			power = convert.sizeOf()-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp = tmp + ((convert.at(i)-48) * result);
+		}
+	}
+	return tmp;
+}
+long double Stold(const String& x, int idx, int base){
+	String convert;
+	bool decimal = false;
+	for(int i=0; i<x.sizeOf(); i++){
+		if(x.at(i) == '0' || x.at(i) == '1' || x.at(i) == '2' || x.at(i) == '3' || x.at(i) == '4' || x.at(i) == '5' || x.at(i) == '6' || x.at(i) == '7' || x.at(i) == '8' || x.at(i) == '9'){
+			convert.append(x.at(i));
+		}else if(x.at(i) == '.'){
+			decimal = true;
+			convert.append(x.at(i));
+		}else{
+			break;
+		}
+	}
+	long double tmp = 0;
+	long double tmp2 = 0;
+	int power = 0;
+	if(decimal){
+		int index = 0;
+		while(convert.at(index) != '.'){
+			index++;
+		}
+		for(int i=0; i<index; i++){
+			power = index-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp = tmp + ((convert.at(i)-48) * result);
+		}
+		int count = index;
+		int power2 = 0;
+		while(convert.at(index) != '\0'){
+			index++;
+		}
+		for(int i=count+1; i<convert.sizeOf(); i++){
+			power2++;
+			power = index-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp2 = tmp2 + ((convert.at(i)-48) * result);
+		}
+		int result = 1;
+		for (int w=1; w<=power2; w++){
+			result = result*10;
+		}
+		tmp2 /= result;
+		tmp += tmp2;
+	}else{
+		for(int i=0; i<convert.sizeOf(); i++){
+			power = convert.sizeOf()-i-1;
+			int result = 1;
+			for (int w=1; w<=power; w++){
+				result = result*10;
+			}
+			tmp = tmp + ((convert.at(i)-48) * result);
+		}
+	}
+	return tmp;
 }
 // Debugging
 void String::print(){
