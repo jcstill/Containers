@@ -17,6 +17,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ********************************************************************************/
 
+/*
+THIS CLASS CONTAINS MEMORY LEAKS
+*/
+
 #ifndef __STACK_H__
 #define __STACK_H__
 #include <iostream>

@@ -17,6 +17,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ********************************************************************************/
 
+/*
+THIS CLASS CONTAINS MEMORY LEAKS
+*/
+
 #ifndef __VECTOR_H__
 #define __VECTOR_H__
 #include <iostream>
